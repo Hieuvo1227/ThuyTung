@@ -1,0 +1,1247 @@
+﻿type: collection.insomnia.rest/5.0
+name: ThuyTung
+meta:
+  id: wrk_e60992dc1e8141bf8cdfa22775f241e4
+  created: 1758860997405
+  modified: 1758860997405
+  description: "API Collection for ThuyTung"
+collection:
+  - name: auth
+    meta:
+      id: fld_8a2bbc8dc5c04c789144588fa3c0d1c0
+      created: 1758861020373
+      modified: 1758861020373
+      sortKey: -1758861020373
+      description: "Authentication endpoints"
+    children:
+      - url: http://localhost:4040/api/v1/auth/login
+        name: login
+        meta:
+          id: req_ad1b2caf197a4e38a0113de9977bfcd0
+          created: 1758861024043
+          modified: 1758863506959
+          isPrivate: false
+          description: "Login to the system"
+          sortKey: -1758861024043
+        method: POST
+        body:
+          mimeType: multipart/form-data
+          params:
+            - id: pair_31140d6e8fa84617b3630255ffb05086
+              name: email
+              value: nguyenvana@example.com
+              description: "User's email"
+              disabled: false
+            - id: pair_142db14adb8044d999ec9a6b30d8f0ad
+              name: password
+              value: password123
+              description: "User's password"
+              disabled: false
+        headers:
+          - name: Content-Type
+            value: multipart/form-data
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
+      - url: http://localhost:4040/api/v1/auth/logout
+        name: logout
+        meta:
+          id: req_b35c1e2384e44ea9a5d6fb3277f228a9
+          created: 1758861124043
+          modified: 1758863516959
+          isPrivate: false
+          description: "Logout from the system"
+          sortKey: -1758861024042
+        method: POST
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.1
+          - name: Authorization
+            value: Bearer {{token}}
+        settings:
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
+      - url: http://localhost:4040/api/v1/auth/send-otp
+        name: send OTP
+        meta:
+          id: req_c57d2f4a6b1c4723b7f89e543c0d1e25
+          created: 1758861224043
+          modified: 1758863526959
+          isPrivate: false
+          description: "Send OTP for verification"
+          sortKey: -1758861024041
+        method: POST
+        body:
+          mimeType: multipart/form-data
+          params:
+            - id: pair_55140d6e8fa84617b3630255ffb05087
+              name: email
+              value: nguyenvana@example.com
+              description: "User's email"
+              disabled: false
+        headers:
+          - name: Content-Type
+            value: multipart/form-data
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
+      - url: http://localhost:4040/api/v1/auth/verify-otp
+        name: verify OTP
+        meta:
+          id: req_d68e3f5b7c2d5834c8f9a6543e1d2f36
+          created: 1758861324043
+          modified: 1758863536959
+          isPrivate: false
+          description: "Verify OTP code"
+          sortKey: -1758861024040
+        method: POST
+        body:
+          mimeType: multipart/form-data
+          params:
+            - id: pair_77140d6e8fa84617b3630255ffb05088
+              name: email
+              value: nguyenvana@example.com
+              description: "User's email"
+              disabled: false
+            - id: pair_88140d6e8fa84617b3630255ffb05089
+              name: otp
+              value: "123456"
+              description: "OTP code"
+              disabled: false
+        headers:
+          - name: Content-Type
+            value: multipart/form-data
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
+      - url: http://localhost:4040/api/v1/auth/reset-password
+        name: reset password
+        meta:
+          id: req_c35a2d4c83d44da9b6e7fb4377f338b1
+          created: 1758864124043
+          modified: 1758864516959
+          isPrivate: false
+          description: "Request password reset (sends OTP)"
+          sortKey: -1758861024041.75
+        method: POST
+        body:
+          mimeType: multipart/form-data
+          params:
+            - id: pair_a21405e3cd84617b3630255ffb05090
+              name: email
+              value: nguyenvana@example.com
+              description: "User's email"
+              disabled: false
+        headers:
+          - name: Content-Type
+            value: multipart/form-data
+          - name: User-Agent
+            value: insomnia/11.6.1
+          - name: Authorization
+            value: Bearer {{token}}
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
+      - url: http://localhost:4040/api/v1/auth/forgot-password
+        name: forgot password
+        meta:
+          id: req_d46b3e5d94e55eb0c7f8fc5488f449c2
+          created: 1758864224043
+          modified: 1758864526959
+          isPrivate: false
+          description: "Reset password after verification"
+          sortKey: -1758861024041.5
+        method: PATCH
+        body:
+          mimeType: multipart/form-data
+          params:
+            - id: pair_b31405e3cd84617b3630255ffb05091
+              name: email
+              value: nguyenvana@example.com
+              description: "User's email"
+              disabled: false
+            - id: pair_c41405e3cd84617b3630255ffb05092
+              name: password
+              value: newpassword123
+              description: "New password"
+              disabled: false
+            - id: pair_d51405e3cd84617b3630255ffb05093
+              name: confirmPassword
+              value: newpassword123
+              description: "Confirm new password"
+              disabled: false
+        headers:
+          - name: Content-Type
+            value: multipart/form-data
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
+      - url: http://localhost:4040/api/v1/auth/change-password
+        name: change password
+        meta:
+          id: req_e57c4f6e05f66fc1d8f9fd5599f550d3
+          created: 1758864324043
+          modified: 1758864536959
+          isPrivate: false
+          description: "Change password when logged in"
+          sortKey: -1758861024041.25
+        method: PATCH
+        body:
+          mimeType: multipart/form-data
+          params:
+            - id: pair_e61405e3cd84617b3630255ffb05094
+              name: email
+              value: nguyenvana@example.com
+              description: "User's email"
+              disabled: false
+            - id: pair_f71405e3cd84617b3630255ffb05095
+              name: oldPassword
+              value: password123
+              description: "Current password"
+              disabled: false
+            - id: pair_g81405e3cd84617b3630255ffb05096
+              name: newPassword
+              value: newpassword123
+              description: "New password"
+              disabled: false
+            - id: pair_h91405e3cd84617b3630255ffb05097
+              name: confirmPassword
+              value: newpassword123
+              description: "Confirm new password"
+              disabled: false
+        headers:
+          - name: Content-Type
+            value: multipart/form-data
+          - name: User-Agent
+            value: insomnia/11.6.1
+          - name: Authorization
+            value: Bearer {{token}}
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
+  - name: users
+    meta:
+      id: fld_9b3ccd9ed6d15d99a255699fb4d1d2e1
+      created: 1758861430373
+      modified: 1758861430373
+      sortKey: -1758861020372
+      description: "User endpoints"
+    children:
+      - url: http://localhost:4040/api/v1/users
+        name: get all users
+        meta:
+          id: req_e79f4g6b8h3i5j1k2l7m8n9o0p1q2r3
+          created: 1758861434043
+          modified: 1758863546959
+          isPrivate: false
+          description: "Get all users"
+          sortKey: -1758861434043
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.1
+          - name: Authorization
+            value: Bearer {{token}}
+        settings:
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
+      - url: http://localhost:4040/api/v1/users/user1
+        name: get user by id
+        meta:
+          id: req_h02i7j9k1l6m8n0o3p5q7r9s2t4u6v
+          created: 1758861734043
+          modified: 1758863576959
+          isPrivate: false
+          description: "Get user by ID"
+          sortKey: -1758861434040
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.1
+          - name: Authorization
+            value: Bearer {{token}}
+        settings:
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
+      - url: http://localhost:4040/api/v1/users
+        name: create user
+        meta:
+          id: req_i13j8k0l2m7n9o1p4q6r8s0t3u5v7w
+          created: 1758861834043
+          modified: 1758863586959
+          isPrivate: false
+          description: "Create a new user"
+          sortKey: -1758861434039
+        method: POST
+        body:
+          mimeType: multipart/form-data
+          params:
+            - id: pair_a9140d6e8fa84617b3630255ffb05098
+              name: email
+              value: newuser@example.com
+              description: "User email"
+              disabled: false
+            - id: pair_b0140d6e8fa84617b3630255ffb05099
+              name: password
+              value: password123
+              description: "User password"
+              disabled: false
+            - id: pair_c1140d6e8fa84617b3630255ffb05100
+              name: name
+              value: "Nguyễn Văn Mới"
+              description: "User name"
+              disabled: false
+            - id: pair_d2140d6e8fa84617b3630255ffb05101
+              name: phone
+              value: "0912345678"
+              description: "User phone"
+              disabled: false
+        headers:
+          - name: Content-Type
+            value: multipart/form-data
+          - name: User-Agent
+            value: insomnia/11.6.1
+          - name: Authorization
+            value: Bearer {{token}}
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
+      - url: http://localhost:4040/api/v1/users/user1
+        name: update user
+        meta:
+          id: req_j24k9l1m3n8o0p2q5r7s9t2u4v6w8x
+          created: 1758861934043
+          modified: 1758863596959
+          isPrivate: false
+          description: "Update an existing user"
+          sortKey: -1758861434038
+        method: PATCH
+        body:
+          mimeType: multipart/form-data
+          params:
+            - id: pair_e3140d6e8fa84617b3630255ffb05102
+              name: name
+              value: "Nguyễn Văn An Updated"
+              description: "Updated user name"
+              disabled: false
+            - id: pair_f4140d6e8fa84617b3630255ffb05103
+              name: phone
+              value: "0912345678"
+              description: "Updated user phone"
+              disabled: false
+        headers:
+          - name: Content-Type
+            value: multipart/form-data
+          - name: User-Agent
+            value: insomnia/11.6.1
+          - name: Authorization
+            value: Bearer {{token}}
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
+  - name: blogs
+    meta:
+      id: fld_9b3ccd9ed6d15d99a255699fb4d1d2e2
+      created: 1758861430373
+      modified: 1758861430373
+      sortKey: -1758861020372
+      description: "Blog endpoints"
+    children:
+      - url: http://localhost:4040/api/v1/blogs
+        name: get all blogs
+        meta:
+          id: req_e79f4g6b8h3i5j1k2l7m8n9o0p1q2r4
+          created: 1758861434043
+          modified: 1758863546959
+          isPrivate: false
+          description: "Get all blogs"
+          sortKey: -1758861434043
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
+      - url: http://localhost:4040/api/v1/blogs/slug/sample-blog-post
+        name: get blog by slug
+        meta:
+          id: req_g91h6i8j0k5l7m9n2o4p6q8r1s3t5u
+          created: 1758861634043
+          modified: 1758863566959
+          isPrivate: false
+          description: "Get blog by slug"
+          sortKey: -1758861434041
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
+      - url: http://localhost:4040/api/v1/blogs/blog1
+        name: get blog by id
+        meta:
+          id: req_h02i7j9k1l6m8n0o3p5q7r9s2t4u6w
+          created: 1758861734043
+          modified: 1758863576959
+          isPrivate: false
+          description: "Get blog by ID"
+          sortKey: -1758861434040
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
+      - url: http://localhost:4040/api/v1/blogs
+        name: create blog
+        meta:
+          id: req_i13j8k0l2m7n9o1p4q6r8s0t3u5v7x
+          created: 1758861834043
+          modified: 1758863586959
+          isPrivate: false
+          description: "Create a new blog"
+          sortKey: -1758861434039
+        method: POST
+        body:
+          mimeType: multipart/form-data
+          params:
+            - id: pair_a9140d6e8fa84617b3630255ffb05104
+              name: title
+              value: "Du học Úc 2025"
+              description: "Blog title"
+              disabled: false
+            - id: pair_b0140d6e8fa84617b3630255ffb05105
+              name: excerpt
+              value: "Hướng dẫn du học Úc chi tiết"
+              description: "Blog excerpt/summary"
+              disabled: false
+            - id: pair_c1140d6e8fa84617b3630255ffb05106
+              name: content
+              value: "Nội dung chi tiết về du học Úc..."
+              description: "Blog content"
+              disabled: false
+            - id: pair_d2140d6e8fa84617b3630255ffb05107
+              name: author
+              value: "Nguyễn Văn An"
+              description: "Blog author"
+              disabled: false
+            - id: pair_e3140d6e8fa84617b3630255ffb05108
+              name: publishedAt
+              value: "2025-09-26T12:00:00Z"
+              description: "Publication date"
+              disabled: false
+            - id: pair_f4140d6e8fa84617b3630255ffb05109
+              name: imageUrl
+              value: "/images/blogs/australia.jpg"
+              description: "Blog image URL"
+              disabled: false
+            - id: pair_g5140d6e8fa84617b3630255ffb05110
+              name: category
+              value: "Du học"
+              description: "Blog category"
+              disabled: false
+            - id: pair_h6140d6e8fa84617b3630255ffb05111
+              name: slug
+              value: "du-hoc-uc-2025"
+              description: "Blog slug"
+              disabled: false
+        headers:
+          - name: Content-Type
+            value: multipart/form-data
+          - name: User-Agent
+            value: insomnia/11.6.1
+          - name: Authorization
+            value: Bearer {{token}}
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
+  - name: contacts
+    meta:
+      id: fld_0c4dde0fe7e26e0ab366700gc5e2e3f2
+      created: 1758861930373
+      modified: 1758861930373
+      sortKey: -1758861020371
+      description: "Contact endpoints"
+    children:
+      - url: http://localhost:4040/api/v1/contacts
+        name: get all contacts
+        meta:
+          id: req_j24k9l1m3n8o0p2q5r7s9t2u4v6w8y
+          created: 1758861934043
+          modified: 1758863596959
+          isPrivate: false
+          description: "Get all contacts"
+          sortKey: -1758861934043
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.1
+          - name: Authorization
+            value: Bearer {{token}}
+        settings:
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
+      - url: http://localhost:4040/api/v1/contacts/contact1
+        name: get contact by id
+        meta:
+          id: req_k35l0m2n4o9p1q3r6s8t0u3v5w7x9z
+          created: 1758862034043
+          modified: 1758863606959
+          isPrivate: false
+          description: "Get contact by ID"
+          sortKey: -1758861934042
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.1
+          - name: Authorization
+            value: Bearer {{token}}
+        settings:
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
+      - url: http://localhost:4040/api/v1/contacts
+        name: submit contact
+        meta:
+          id: req_l46m1n3o5p0q2r4s7t9u1v4w6x8y1
+          created: 1758862134043
+          modified: 1758863616959
+          isPrivate: false
+          description: "Submit a new contact"
+          sortKey: -1758861934041
+        method: POST
+        body:
+          mimeType: multipart/form-data
+          params:
+            - id: pair_i7140d6e8fa84617b3630255ffb05112
+              name: name
+              value: "Nguyễn Văn An"
+              description: "Contact name"
+              disabled: false
+            - id: pair_j8140d6e8fa84617b3630255ffb05113
+              name: email
+              value: nguyenvana@example.com
+              description: "Contact email"
+              disabled: false
+            - id: pair_k9140d6e8fa84617b3630255ffb05114
+              name: phone
+              value: "0901234567"
+              description: "Contact phone"
+              disabled: false
+            - id: pair_l0140d6e8fa84617b3630255ffb05115
+              name: message
+              value: "Tôi muốn biết thêm về chương trình Du học Úc."
+              description: "Contact message"
+              disabled: false
+        headers:
+          - name: Content-Type
+            value: multipart/form-data
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
+      - url: http://localhost:4040/api/v1/contacts/contact1/resolve/user1
+        name: resolve contact
+        meta:
+          id: req_m57n2o4p6q1r3s5t8u0v2w4x7y9z2
+          created: 1758862234043
+          modified: 1758863626959
+          isPrivate: false
+          description: "Resolve a contact"
+          sortKey: -1758861934040
+        method: POST
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.1
+          - name: Authorization
+            value: Bearer {{token}}
+        settings:
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
+  - name: faqs
+    meta:
+      id: fld_1d5eef1gf8f37f1bc477811hd6f3f4g3
+      created: 1758862230373
+      modified: 1758862230373
+      sortKey: -1758861020370
+      description: "FAQ endpoints"
+    children:
+      - url: http://localhost:4040/api/v1/faqs
+        name: get all faqs
+        meta:
+          id: req_m57n2o4p6q1r3s5t8u0v2w4x7y9z3
+          created: 1758862234043
+          modified: 1758863626959
+          isPrivate: false
+          description: "Get all FAQs"
+          sortKey: -1758862234043
+        method: GET
+        parameters:
+          - name: category
+            value: "Úc"
+            description: "FAQ category (optional)"
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
+      - url: http://localhost:4040/api/v1/faqs/faq1
+        name: get faq by id
+        meta:
+          id: req_n68o3p5q7r2s4t6u9v1w3x5y8z0a3
+          created: 1758862334043
+          modified: 1758863636959
+          isPrivate: false
+          description: "Get FAQ by ID"
+          sortKey: -1758862234042
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
+      - url: http://localhost:4040/api/v1/faqs
+        name: create faq
+        meta:
+          id: req_o79p4q6r8s3t5u7v0w2x4y6z8a0b3
+          created: 1758862435043
+          modified: 1758863637959
+          isPrivate: false
+          description: "Create a new FAQ"
+          sortKey: -1758862234042
+        method: POST
+        body:
+          mimeType: multipart/form-data
+          params:
+            - id: pair_m1140d6e8fa84617b3630255ffb05116
+              name: question
+              value: "Điều kiện du học Úc là gì?"
+              description: "FAQ question"
+              disabled: false
+            - id: pair_n2140d6e8fa84617b3630255ffb05117
+              name: answer
+              value: "Cần IELTS 6.0 và tốt nghiệp THPT."
+              description: "FAQ answer"
+              disabled: false
+            - id: pair_o3140d6e8fa84617b3630255ffb05118
+              name: category
+              value: "Úc"
+              description: "FAQ category"
+              disabled: false
+        headers:
+          - name: Content-Type
+            value: multipart/form-data
+          - name: User-Agent
+            value: insomnia/11.6.1
+          - name: Authorization
+            value: Bearer {{token}}
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
+      - url: http://localhost:4040/api/v1/faqs/faq1
+        name: update faq
+        meta:
+          id: req_p80q5r7s9t4u6v8w1x3y5z7a9b1c4
+          created: 1758862534043
+          modified: 1758863646959
+          isPrivate: false
+          description: "Update an existing FAQ"
+          sortKey: -1758862234041
+        method: PATCH
+        body:
+          mimeType: multipart/form-data
+          params:
+            - id: pair_q5140d6e8fa84617b3630255ffb05119
+              name: question
+              value: "Điều kiện du học Úc cập nhật?"
+              description: "Updated FAQ question"
+              disabled: false
+            - id: pair_r6140d6e8fa84617b3630255ffb05120
+              name: answer
+              value: "Cần IELTS 6.5 và tốt nghiệp THPT."
+              description: "Updated FAQ answer"
+              disabled: false
+            - id: pair_s7140d6e8fa84617b3630255ffb05121
+              name: category
+              value: "Úc"
+              description: "Updated FAQ category"
+              disabled: false
+        headers:
+          - name: Content-Type
+            value: multipart/form-data
+          - name: User-Agent
+            value: insomnia/11.6.1
+          - name: Authorization
+            value: Bearer {{token}}
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
+  - name: jobs
+    meta:
+      id: fld_2e6ffg2hg9g48g2cd588922ie7g4g5h4
+      created: 1758862430373
+      modified: 1758862430373
+      sortKey: -1758861020369
+      description: "Job endpoints"
+    children:
+      - url: http://localhost:4040/api/v1/jobs
+        name: get all jobs
+        meta:
+          id: req_o79p4q6r8s3t5u7v0w2x4y6z8a0b4
+          created: 1758862434043
+          modified: 1758863646959
+          isPrivate: false
+          description: "Get all jobs"
+          sortKey: -1758862434043
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
+      - url: http://localhost:4040/api/v1/jobs/job1
+        name: get job by id
+        meta:
+          id: req_p80q5r7s9t4u6v8w1x3y5z7a9b1c5
+          created: 1758862534043
+          modified: 1758863656959
+          isPrivate: false
+          description: "Get job by ID"
+          sortKey: -1758862434042
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
+      - url: http://localhost:4040/api/v1/jobs
+        name: create job
+        meta:
+          id: req_q91r6s8t0u5v7w9x2y4z6a8b0c3
+          created: 1758862634043
+          modified: 1758863666959
+          isPrivate: false
+          description: "Create a new job"
+          sortKey: -1758862434041
+        method: POST
+        body:
+          mimeType: multipart/form-data
+          params:
+            - id: pair_q5140d6e8fa84617b3630255ffb05122
+              name: title
+              value: "Nhân viên văn phòng Úc"
+              description: "Job title"
+              disabled: false
+            - id: pair_r6140d6e8fa84617b3630255ffb05123
+              name: country
+              value: "Úc"
+              description: "Job country"
+              disabled: false
+            - id: pair_s7140d6e8fa84617b3630255ffb05124
+              name: imageUrl
+              value: "/images/jobs/australia.jpg"
+              description: "Job image URL"
+              disabled: false
+            - id: pair_t8140d6e8fa84617b3630255ffb05125
+              name: positions
+              value: "5"
+              description: "Number of positions"
+              disabled: false
+            - id: pair_u9140d6e8fa84617b3630255ffb05126
+              name: location
+              value: "Sydney"
+              description: "Job location"
+              disabled: false
+            - id: pair_v0140d6e8fa84617b3630255ffb05127
+              name: salary
+              value: "75,000,000 VND/tháng"
+              description: "Job salary"
+              disabled: false
+            - id: pair_w1140d6e8fa84617b3630255ffb05128
+              name: applicationDeadline
+              value: "2025-12-31"
+              description: "Application deadline"
+              disabled: false
+            - id: pair_x2140d6e8fa84617b3630255ffb05129
+              name: estimatedDeparture
+              value: "2026-02-01"
+              description: "Estimated departure date"
+              disabled: false
+            - id: pair_y3140d6e8fa84617b3630255ffb05130
+              name: requirements
+              value: '["Tiếng Anh tốt", "Kinh nghiệm văn phòng"]'
+              description: "Job requirements"
+              disabled: false
+            - id: pair_z4140d6e8fa84617b3630255ffb05131
+              name: benefits
+              value: '["Bảo hiểm", "Thưởng"]'
+              description: "Job benefits"
+              disabled: false
+            - id: pair_a5140d6e8fa84617b3630255ffb05132
+              name: description
+              value: "Công việc văn phòng tại Úc."
+              description: "Job description"
+              disabled: false
+            - id: pair_b6140d6e8fa84617b3630255ffb05133
+              name: company
+              value: "AUS Office"
+              description: "Company name"
+              disabled: false
+            - id: pair_c7140d6e8fa84617b3630255ffb05134
+              name: workType
+              value: "Full-time"
+              description: "Work type"
+              disabled: false
+            - id: pair_d8140d6e8fa84617b3630255ffb05135
+              name: featured
+              value: "true"
+              description: "Is featured job"
+              disabled: false
+            - id: pair_e9140d6e8fa84617b3630255ffb05136
+              name: workingHours
+              value: "40h/tuần"
+              description: "Working hours"
+              disabled: false
+            - id: pair_f0140d6e8fa84617b3630255ffb05137
+              name: overtime
+              value: "Có"
+              description: "Overtime details"
+              disabled: false
+            - id: pair_g1140d6e8fa84617b3630255ffb05138
+              name: accommodation
+              value: "Có hỗ trợ"
+              description: "Accommodation details"
+              disabled: false
+            - id: pair_h2140d6e8fa84617b3630255ffb05139
+              name: workEnvironment
+              value: "Văn phòng hiện đại"
+              description: "Work environment"
+              disabled: false
+            - id: pair_i3140d6e8fa84617b3630255ffb05140
+              name: trainingPeriod
+              value: "1 tháng"
+              description: "Training period"
+              disabled: false
+        headers:
+          - name: Content-Type
+            value: multipart/form-data
+          - name: User-Agent
+            value: insomnia/11.6.1
+          - name: Authorization
+            value: Bearer {{token}}
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
+      - url: http://localhost:4040/api/v1/jobs/job1
+        name: update job
+        meta:
+          id: req_u35v1w3x5y7z9a1b3c5d7e9f1g3h6
+          created: 1758862735043
+          modified: 1758863767959
+          isPrivate: false
+          description: "Update an existing job"
+          sortKey: -1758862434040
+        method: PATCH
+        body:
+          mimeType: multipart/form-data
+          params:
+            - id: pair_j4140d6e8fa84617b3630255ffb05141
+              name: title
+              value: "Nhân viên văn phòng Úc (Cập nhật)"
+              description: "Updated job title"
+              disabled: false
+            - id: pair_k5140d6e8fa84617b3630255ffb05142
+              name: salary
+              value: "80,000,000 VND/tháng"
+              description: "Updated job salary"
+              disabled: false
+            - id: pair_l6140d6e8fa84617b3630255ffb05143
+              name: description
+              value: "Công việc văn phòng tại Úc với nhiều ưu đãi."
+              description: "Updated job description"
+              disabled: false
+            - id: pair_m7140d6e8fa84617b3630255ffb05144
+              name: featured
+              value: "false"
+              description: "Updated featured status"
+              disabled: false
+        headers:
+          - name: Content-Type
+            value: multipart/form-data
+          - name: User-Agent
+            value: insomnia/11.6.1
+          - name: Authorization
+            value: Bearer {{token}}
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
+  - name: programs
+    meta:
+      id: fld_3f7ggh3ih0h59h3de699033jf8h5h6i5
+      created: 1758862730373
+      modified: 1758862730373
+      sortKey: -1758861020368
+      description: "Program endpoints"
+    children:
+      - url: http://localhost:4040/api/v1/programs
+        name: get all programs
+        meta:
+          id: req_r02s7t9u1v6w8x0y3z5a7b9c2d4e7
+          created: 1758862734043
+          modified: 1758863676959
+          isPrivate: false
+          description: "Get all programs"
+          sortKey: -1758862734043
+        method: GET
+        parameters:
+          - name: featured
+            value: "true"
+            description: "Filter by featured programs"
+            disabled: false
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
+      - url: http://localhost:4040/api/v1/programs/program1
+        name: get program by id
+        meta:
+          id: req_s13t8u0v2w7x9y1z4a6b8c0d3e5f8
+          created: 1758862834043
+          modified: 1758863686959
+          isPrivate: false
+          description: "Get program by ID"
+          sortKey: -1758862734042
+        method: GET
+        headers:
+          - name: User-Agent
+            value: insomnia/11.6.1
+        settings:
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
+      - url: http://localhost:4040/api/v1/programs
+        name: create program
+        meta:
+          id: req_t24u9v1w3x8y0z2a5b7c9d2e4f6g9
+          created: 1758862934043
+          modified: 1758863696959
+          isPrivate: false
+          description: "Create a new program"
+          sortKey: -1758862734041
+        method: POST
+        body:
+          mimeType: multipart/form-data
+          params:
+            - id: pair_j4140d6e8fa84617b3630255ffb05145
+              name: title
+              value: "Du học Úc"
+              description: "Program title"
+              disabled: false
+            - id: pair_k5140d6e8fa84617b3630255ffb05146
+              name: description
+              value: "Chương trình du học tại Úc với nhiều ưu đãi."
+              description: "Program description"
+              disabled: false
+            - id: pair_l6140d6e8fa84617b3630255ffb05147
+              name: country
+              value: "Úc"
+              description: "Program country"
+              disabled: false
+            - id: pair_m7140d6e8fa84617b3630255ffb05148
+              name: duration
+              value: "2 năm"
+              description: "Program duration"
+              disabled: false
+            - id: pair_n8140d6e8fa84617b3630255ffb05149
+              name: tuition
+              value: "500,000,000 VND"
+              description: "Program tuition"
+              disabled: false
+            - id: pair_o9140d6e8fa84617b3630255ffb05150
+              name: opportunities
+              value: "Cơ hội việc làm sau tốt nghiệp"
+              description: "Program opportunities"
+              disabled: false
+            - id: pair_p0140d6e8fa84617b3630255ffb05151
+              name: about
+              value: "Úc là một trong những điểm đến du học hàng đầu với nền giáo dục chất lượng cao."
+              description: "Program about"
+              disabled: false
+            - id: pair_q1140d6e8fa84617b3630255ffb05152
+              name: requirements
+              value: "IELTS 6.0, Tốt nghiệp THPT"
+              description: "Program requirements"
+              disabled: false
+            - id: pair_r2140d6e8fa84617b3630255ffb05153
+              name: benefits
+              value: "Cơ hội việc làm, Định cư"
+              description: "Program benefits"
+              disabled: false
+            - id: pair_s3140d6e8fa84617b3630255ffb05154
+              name: imageUrl
+              value: "/images/mockPrograms/australia.jpg"
+              description: "Program image URL"
+              disabled: false
+            - id: pair_t4140d6e8fa84617b3630255ffb05155
+              name: featured
+              value: "true"
+              description: "Is featured program"
+              disabled: false
+        headers:
+          - name: Content-Type
+            value: multipart/form-data
+          - name: User-Agent
+            value: insomnia/11.6.1
+          - name: Authorization
+            value: Bearer {{token}}
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
+      - url: http://localhost:4040/api/v1/programs/program1
+        name: update program
+        meta:
+          id: req_v46w2x4y6z8a0b2c4d6e8f0g2h5
+          created: 1758863034043
+          modified: 1758863796959
+          isPrivate: false
+          description: "Update an existing program"
+          sortKey: -1758862734040
+        method: PATCH
+        body:
+          mimeType: multipart/form-data
+          params:
+            - id: pair_c3140d6e8fa84617b3630255ffb05156
+              name: title
+              value: "Du học Úc (Cập nhật)"
+              description: "Updated program title"
+              disabled: false
+            - id: pair_d4140d6e8fa84617b3630255ffb05157
+              name: tuition
+              value: "550,000,000 VND"
+              description: "Updated program tuition"
+              disabled: false
+            - id: pair_e5140d6e8fa84617b3630255ffb05158
+              name: description
+              value: "Chương trình du học tại Úc với nhiều ưu đãi cập nhật."
+              description: "Updated program description"
+              disabled: false
+            - id: pair_f6140d6e8fa84617b3630255ffb05159
+              name: featured
+              value: "false"
+              description: "Updated featured status"
+              disabled: false
+        headers:
+          - name: Content-Type
+            value: multipart/form-data
+          - name: User-Agent
+            value: insomnia/11.6.1
+          - name: Authorization
+            value: Bearer {{token}}
+        settings:
+          renderRequestBody: true
+          encodeUrl: true
+          followRedirects: global
+          cookies:
+            send: true
+            store: true
+          rebuildPath: true
+
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_b6ff7d4228122de9a07cc962d138e060679fc1f5
+    created: 1758860997415
+    modified: 1758860997415
+environments:
+  name: Base Environment
+  meta:
+    id: env_b6ff7d4228122de9a07cc962d138e060679fc1f5
+    created: 1758860997411
+    modified: 1758860997411
+    isPrivate: false
+  data:
+    token: ""
+  dataPropertyOrder: null
+  color: null

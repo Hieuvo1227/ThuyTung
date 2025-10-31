@@ -1,0 +1,52 @@
+.navItem {
+    position: relative;
+    font-weight: 500;
+    color: #374151;
+    text-decoration: none;
+    padding: 4px 0;
+    display: inline-block;
+}
+
+:global(.dark) .navItem {
+    color: #D1D5DB;
+}
+
+.navItem::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 4px;
+    bottom: -6px;
+    left: 0;
+    background-color: #0b803c;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+    border-radius: 2px;
+    /* Make it more visible */
+    box-shadow: 0 0 4px rgba(11, 128, 60, 0.5);
+}
+
+.navItem:hover {
+    color: #0b803c;
+}
+
+:global(.dark) .navItem:hover {
+    color: #0b803c;
+}
+
+.navItem:hover::after {
+    transform: scaleX(1);
+}
+
+.navItem.active {
+    color: #0b803c;
+}
+
+:global(.dark) .navItem.active {
+    color: #0b803c;
+}
+
+.navItem.active::after {
+    transform: scaleX(1);
+}
