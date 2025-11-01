@@ -31,6 +31,10 @@ export const theme = {
                 DEFAULT: "#0071BC",
             },
         },
+        screens: {
+            'xs': '475px',
+            // => @media (min-width: 475px) { ... }
+        },
         animation: {
             'pulse-scale': 'pulse-scale 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         },
@@ -42,6 +46,17 @@ export const theme = {
                 '50%': {
                     transform: 'scale(1.1)',
                 },
+            },
+        },
+        container: {
+            center: true,
+            padding: {
+                DEFAULT: '1rem',
+                sm: '1.5rem',
+                md: '2rem',
+                lg: '2.5rem',
+                xl: '3rem',
+                '2xl': '4rem',
             },
         },
     },
