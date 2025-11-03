@@ -48,3 +48,11 @@ export const handleResolveContact = HandlerCustom(async (data: { id: string; use
 
     return contact;
 });
+
+export const handleDeleteContact = HandlerCustom(async (data: { id: string }) => {
+    const contact = await Contact
+        .findByIdAndDelete(data.id)
+        .exec();
+
+    return contact;
+});

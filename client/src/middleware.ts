@@ -15,29 +15,9 @@ export async function middleware(request: NextRequest) {
   const authToken = request.cookies.get(AUTH_COOKIE_NAME)?.value;
   console.log("🎫 Auth token from cookies:", authToken ? authToken.substring(0, 20) + "..." : "[NONE]");
 
-  let isAuthenticated = false;
-  if (authToken) {
-    try {
-      // Prefer verifying JWT properly (jose). For now we just decode payload safely.
-      const payload = authToken.split('.')[1];
-      console.log("🔓 Token payload:", payload);
-      
-      const decodedPayload = JSON.parse(
-        typeof atob !== 'undefined'
-          ? atob(payload.replace(/-/g, '+').replace(/_/g, '/'))
-          : Buffer.from(payload, 'base64').toString('utf8')
-      );
-      console.log("🔓 Decoded payload:", decodedPayload);
-      
-      isAuthenticated = !!decodedPayload?.id;
-      console.log("✅ Is authenticated:", isAuthenticated);
-    } catch (err: unknown) {
-      console.log("❌ Error decoding token:", err);
-      isAuthenticated = false;
-    }
-  } else {
-    console.log("❌ No auth token found");
-  }
+  // For now, just check if token exists (simplified approach)
+  const isAuthenticated = !!authToken;
+  console.log("✅ Is authenticated (token exists):", isAuthenticated);
 
   // Mobile block example (keep if intended)
   const userAgent = request.headers.get('user-agent') || '';

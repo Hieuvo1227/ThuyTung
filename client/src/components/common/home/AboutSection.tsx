@@ -132,24 +132,26 @@ export default function AboutSection() {
             </div>
 
             <div className="flex flex-col sm:flex-row items-center gap-6 mt-auto pt-6 border-t border-gray-200 dark:border-gray-700">
-              <Button
-                variant="outline"
-                size="lg"
-                className="border-primary text-primary hover:bg-primary/5 rounded-full px-8 text-base w-full sm:w-auto"
-              >
-                GIỚI THIỆU
-              </Button>
-              <div className="flex items-center gap-3">
-                <div className="w-12 h-12 flex items-center justify-center rounded-full bg-primary text-white">
-                  <PhoneIcon className="w-6 h-6" />
+                <a href="/about">
+                  <Button
+                    variant="outline"
+                    size="lg"
+                    className="border-primary text-primary hover:bg-primary/5 rounded-full px-8 text-base w-full sm:w-auto"
+                  >
+                    GIỚI THIỆU
+                  </Button>
+                </a>
+                <div className="flex items-center gap-3">
+                  <div className="w-12 h-12 flex items-center justify-center rounded-full bg-primary text-white">
+                    <PhoneIcon className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <p className="text-gray-500 dark:text-gray-400 text-sm">
+                      Bạn cần tư vấn?
+                    </p>
+                    <p className="text-primary font-bold text-xl">{PHONE}</p>
+                  </div>
                 </div>
-                <div>
-                  <p className="text-gray-500 dark:text-gray-400 text-sm">
-                    Bạn cần tư vấn?
-                  </p>
-                  <p className="text-primary font-bold text-xl">{PHONE}</p>
-                </div>
-              </div>
             </div>
           </motion.div>
         </motion.div>

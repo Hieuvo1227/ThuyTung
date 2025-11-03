@@ -74,6 +74,8 @@ const PUBLIC_ROUTES = [
     '/jobs',
     '/faqs',
     '/blogs',  // Public blog listing
+    '/contacts', // Public contact form submission and listing
+    '/users', // Public user listing
 ];
 
 /**

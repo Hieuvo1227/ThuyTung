@@ -54,7 +54,7 @@ const processSteps: IProcessStep[] = [
     },
     {
         number: "04",
-        title: "Phỏng Vấn Với Nghiệp Đoàn",
+        title: "Phỏng Vấn",
         description: "Sắp xếp phỏng vấn với các nghiệp đoàn và công ty tuyển dụng. Thông tin được đăng tải công khai.",
         icon: IconUsers,
     },
@@ -97,14 +97,14 @@ export default function WorkingProcessSection() {
     return (
         <section ref={ref} className="py-6 md:py-6 relative bg-white dark:bg-gray-900 overflow-hidden">
             {/* Background Image */}
-            <div className="absolute inset-0 opacity-80">
+            <div className="absolute inset-0 opacity-100">
                 <Image
                     src="/images/working-process.jpg"
                     alt="Quy trình làm việc background"
                     fill
                     className="object-cover"
                 />
-                <div className="absolute inset-0 bg-white/80 dark:bg-gray-900/80"></div>
+                <div className="absolute inset-0 bg-white/70 dark:bg-gray-900/70"></div>
             </div>
 
             <div className="relative z-10 container mx-auto px-8 sm:px-12 lg:px-24">
@@ -141,10 +141,18 @@ export default function WorkingProcessSection() {
                                 transition: { duration: 0.3, ease: "easeOut" },
                             }}
                         >
-                            <div className="relative z-10 w-20 h-20 flex items-center justify-center bg-primary/10 dark:bg-gray-800 rounded-full border-4 border-white dark:border-gray-900 shadow-lg mb-[-40px] group-hover:bg-primary/20 transition-all duration-300">
-                                <span className="text-3xl font-bold text-primary">
-                                    {step.number}
-                                </span>
+                            {/* Two-border step number design */}
+                            <div className="relative z-10 w-20 h-20 flex items-center justify-center mb-[-40px] group-hover:scale-110 transition-transform duration-300">
+                                {/* Outer dark green border */}
+                                <div className="absolute inset-0 rounded-full border-4 border-primary"></div>
+                                {/* Inner light green border */}
+                                <div className="absolute inset-2 rounded-full border-2 border-primary/50"></div>
+                                {/* Number container with transparent background to show through the borders */}
+                                <div className="relative z-10 flex items-center justify-center w-16 h-16 rounded-full bg-transparent">
+                                    <span className="text-3xl font-bold text-primary">
+                                        {step.number}
+                                    </span>
+                                </div>
                             </div>
 
                             <div className="bg-white dark:bg-gray-800 pt-16 p-6 rounded-xl border border-gray-200 dark:border-gray-700 w-full shadow-lg h-full flex flex-col transition-all duration-300 group-hover:shadow-2xl group-hover:border-primary/50">

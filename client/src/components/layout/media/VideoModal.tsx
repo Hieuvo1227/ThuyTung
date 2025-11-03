@@ -55,7 +55,7 @@ export default function VideoModal({
   return (
     <div
       ref={modalRef}
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75 p-4"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-80 p-4 backdrop-blur-sm"
       onClick={handleBackdropClick}
       onKeyDown={handleKeyDown}
       tabIndex={-1}
@@ -63,20 +63,20 @@ export default function VideoModal({
       aria-modal="true"
       aria-labelledby={title ? "video-modal-title" : undefined}
     >
-      <div className="relative w-full max-w-4xl bg-white rounded-lg overflow-hidden shadow-2xl">
+      <div className="relative w-full max-w-4xl bg-white dark:bg-gray-800 rounded-2xl overflow-hidden shadow-2xl border border-white/20">
         {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b">
+        <div className="flex items-center justify-between p-4 border-b border-gray-200 dark:border-gray-700 bg-green-50 dark:bg-gray-700">
           {title && (
             <h2
               id="video-modal-title"
-              className="text-lg font-semibold text-gray-900"
+              className="text-lg font-semibold text-gray-900 dark:text-white"
             >
               {title}
             </h2>
           )}
           <button
             onClick={onClose}
-            className="ml-auto p-2 text-gray-400 hover:text-gray-600 transition-colors rounded-full hover:bg-gray-100"
+            className="ml-auto p-2 text-gray-400 hover:text-gray-600 dark:text-gray-300 dark:hover:text-gray-100 transition-colors rounded-full hover:bg-gray-100 dark:hover:bg-gray-600"
             aria-label="Đóng video"
           >
             <X className="w-6 h-6" />

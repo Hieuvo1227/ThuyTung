@@ -50,3 +50,21 @@
 .navItem.active::after {
     transform: scaleX(1);
 }
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+    .navItem {
+        font-size: 1.125rem;
+        padding: 8px 0;
+        color: #1F2937;
+    }
+    
+    :global(.dark) .navItem {
+        color: #F9FAFB;
+    }
+    
+    .navItem::after {
+        height: 3px;
+        bottom: -4px;
+    }
+}

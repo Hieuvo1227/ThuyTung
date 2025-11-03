@@ -11,13 +11,14 @@ import { ContactTable } from "@/components/common/admin/contactDashboard/Contact
 import { TableSearch } from "@/components/common/admin/TableSearch";
 import { ContactFilter } from "@/components/common/admin/contactDashboard/ContactFilter";
 import { DashboardHeader } from "@/components/common/admin/DashboardHeader";
+import { toast } from "react-toastify";
 
 // Initialize empty filters
 const initialFilters = { status: [] as string[] };
 
 export default function ContactDashboardPage() {
   const { userAuth } = useAuthStore();
-  const { isLoading, getAllContacts, resolveContact } = useContactStore();
+  const { isLoading, getAllContacts, resolveContact, deleteContact } = useContactStore();
 
   const [searchQuery, setSearchQuery] = useState("");
   const [isViewDetailsOpen, setIsViewDetailsOpen] = useState(false);
@@ -84,6 +85,25 @@ export default function ContactDashboardPage() {
   const handleViewDetails = (contact: IContact) => {
     setSelectedContact(contact);
     setIsViewDetailsOpen(true);
+  };
+
+  const handleDeleteContact = async (contactId: string) => {
+    try {
+      const response = await deleteContact(contactId);
+      if (response.success) {
+        toast.success("Contact deleted successfully");
+        // Refresh the contacts list after deleting
+        const res = await getAllContacts();
+        const data = res?.data?.contacts || [];
+        setAllContacts(data);
+        setFilteredContacts(data);
+      } else {
+        toast.error(response.message || "Failed to delete contact");
+      }
+    } catch (error) {
+      console.error("Error deleting contact:", error);
+      toast.error("Failed to delete contact");
+    }
   };
 
   const handleResolveContact = async () => {
@@ -202,6 +222,7 @@ export default function ContactDashboardPage() {
             contacts={filteredContacts}
             isLoading={isLoading}
             onViewDetails={handleViewDetails}
+            onDelete={handleDeleteContact}
           />
         </Card>
       </div>

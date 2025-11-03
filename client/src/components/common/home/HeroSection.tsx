@@ -1,4 +1,4 @@
-﻿﻿﻿﻿"use client";
+﻿﻿"use client";
 
 import React, { useState, useRef, useEffect } from "react";
 import { motion, useInView, useMotionValue, useTransform, animate } from "framer-motion";
@@ -79,7 +79,7 @@ export default function HeroSection() {
     return (
         <motion.section
             ref={ref}
-            className="relative pt-4 pb-40 overflow-hidden"
+            className="relative pt-4 pb-10 md:pb-20 overflow-hidden"
         >
             {/* Background Image & Overlay */}
             <div className="absolute inset-0 -z-10">
@@ -93,25 +93,25 @@ export default function HeroSection() {
                 <div className="absolute inset-0 bg-black/50"></div>
             </div>
 
-            <div className="container mx-auto px-4">
-                {/* Container for overlapping cards */}
+            {/* Full width container matching navbar structure */}
+            <div className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8">
+                {/* Container for overlapping cards with fixed height on desktop */}
                 <motion.div
-                    className="relative max-w-4xl mx-auto"
+                    className="relative lg:min-h-[600px]"
                     variants={containerVariants}
                     initial="hidden"
                     animate={isInView ? "visible" : "hidden"}
                 >
-
-                    {/* Main Content Card (Left) */}
+                    {/* Main Content Card (Left) - With light green background */}
                     <motion.div
                         variants={itemVariants}
-                        className="relative z-10 bg-white dark:bg-gray-800 p-8 rounded-2xl shadow-2xl border border-white/80 w-full lg:w-4/5 -ml-24"
+                        className="relative z-10 bg-green-50 dark:bg-gray-800 p-6 md:p-8 rounded-2xl shadow-2xl border border-white/80 w-full lg:w-[55%] xl:w-[60%] lg:absolute lg:left-[100px] lg:top-0"
                     >
-                        <h1 className="text-4xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight mb-5">
+                        <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight mb-4 md:mb-5">
                             Kết Nối <span className="text-primary">Giáo Dục</span> & Nâng Tầm{" "}
                             <span className="text-primary">Cuộc Sống</span>
                         </h1>
-                        <p className="text-gray-700 dark:text-gray-300 text-justify mb-6 text-lg">
+                        <p className="text-gray-700 dark:text-gray-300 text-justify mb-4 md:mb-6 text-base md:text-lg">
                             Bạn đang mơ ước học tiếp Thạc sĩ tại nước ngoài và có cơ hội phát triển
                             sự nghiệp trong môi trường quốc tế hiện đại?{" "}
                             <span className="text-primary font-semibold">{COMPANY}</span>{" "}
@@ -125,7 +125,7 @@ export default function HeroSection() {
                             transition={{ delay: 0.5, duration: 0.6, type: "spring", stiffness: 100 }}
                         >
                             <motion.div 
-                                className="bg-primary/10 dark:bg-primary/20 p-3 rounded-full"
+                                className="bg-primary/10 dark:bg-primary/20 p-2 md:p-3 rounded-full"
                                 animate={isInView ? {
                                     boxShadow: [
                                         "0 0 0 0 rgba(var(--primary-rgb, 59, 130, 246), 0.4)",
@@ -139,23 +139,23 @@ export default function HeroSection() {
                                     repeatDelay: 1
                                 }}
                             >
-                                <span className="text-2xl font-bold text-primary">
+                                <span className="text-xl md:text-2xl font-bold text-primary">
                                     {isInView && <Counter to={12} duration={2} />}+
                                 </span>
                             </motion.div>
                             <div>
-                                <p className="font-semibold text-gray-900 dark:text-white">Năm Kinh Nghiệm</p>
-                                <p className="text-sm text-gray-500 dark:text-gray-400">Trong Ngành Giáo Dục</p>
+                                <p className="font-semibold text-gray-900 dark:text-white text-sm md:text-base">Năm Kinh Nghiệm</p>
+                                <p className="text-xs md:text-sm text-gray-500 dark:text-gray-400">Trong Ngành Giáo Dục</p>
                             </div>
                         </motion.div>
                     </motion.div>
 
-                    {/* Secondary Card (Right) with Stats and Buttons */}
+                    {/* Secondary Card (Below on mobile, overlapping bottom-right on desktop) - Aligned with center of "Tư vấn miễn phí" button */}
                     <motion.div
                         variants={itemVariants}
-                        className="absolute bottom-[-8rem] right-0 z-40 w-full lg:w-3/5 -mr-14 -mt-22"
+                        className="mt-4 md:mt-8 relative z-20 w-full lg:absolute lg:bottom-0 lg:right-0 lg:w-[45%] xl:w-[40%] lg:translate-y-[-16px] lg:right-[100px]"
                     >
-                        <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-2xl border border-white/20 space-y-6">
+                        <div className="bg-green-50 dark:bg-gray-800 p-6 rounded-2xl shadow-2xl border border-white/20 space-y-6">
                             {/* Stats Block */}
                             <div className="grid grid-cols-3 gap-4 divide-x divide-gray-300 dark:divide-gray-600">
                                 <motion.div 

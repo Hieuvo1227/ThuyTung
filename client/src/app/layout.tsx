@@ -2,11 +2,14 @@
 import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import { Slide, ToastContainer } from "react-toastify";
-import LinkProgressProvider from "@/components/layout/navigation/LinkProgressBar";
+import "react-toastify/dist/ReactToastify.css";
 import { ThemeProvider } from "@/components/layout/theme/ThemeProvider";
+import LinkProgressProvider from "@/components/layout/navigation/LinkProgressBar";
 import Navbar from "@/components/layout/navigation/Navbar";
 import Footer from "@/components/layout/footer/Footer";
 import FloatingContactButtons from "@/components/layout/contact/FloatingContactButtons";
+import ScrollToTopButton from "@/components/layout/navigation/ScrollToTopButton";
+
 import { COMPANY, DESCRIPTION } from "@/utils/services/constants";
 
 // Font tối ưu + hỗ trợ tiếng Việt
@@ -17,7 +20,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: `${COMPANY} - ${DESCRIPTION}`,
+  title: `${COMPANY}`,
   description:
     "Kết nối giáo dục & nâng tầm cuộc sống. Chương trình du học chất lượng cao tại Hàn Quốc, Nhật Bản, Đài Loan, Đức, Mỹ, Úc.",
   keywords: "du học, giáo dục quốc tế, Hàn Quốc, Nhật Bản, Đài Loan, học bổng",
@@ -63,14 +66,12 @@ export default function RootLayout({
       </head>
 
       <body
-        className={`${inter.className} bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors`}
+        className={`${inter.className} bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100 transition-colors duration-300`}
       >
         <LinkProgressProvider>
           <ThemeProvider>
             {/* --- HEADER --- */}
-            <header className="sticky top-0 z-50 w-full shadow-md bg-white dark:bg-gray-900">
-              <Navbar />
-            </header>
+            <Navbar />
 
             {/* THAY ĐỔI: Đã xóa bg-white và các class layout khỏi <main> */}
             <main className="min-h-screen">
@@ -82,6 +83,9 @@ export default function RootLayout({
 
             {/* --- NÚT LIÊN HỆ NỔI --- */}
             <FloatingContactButtons />
+            
+            {/* --- NÚT CUỘN LÊN ĐẦU TRANG --- */}
+            <ScrollToTopButton />
 
             {/* --- TOAST --- */}
             <ToastContainer
@@ -103,4 +107,3 @@ export default function RootLayout({
     </html>
   );
 }
-

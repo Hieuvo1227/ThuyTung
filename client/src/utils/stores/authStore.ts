@@ -1,7 +1,6 @@
 import { EHttpType, handleRequest, IApiResponse } from "@/lib/axiosInstance";
 import { createStore, EStorageType, IBaseStore } from "@/lib/initialStore";
 import { useUserStore } from './userStore';
-import { useBlogStore } from "./blogStore";
 import { useContactStore } from "./contactStore";
 import { useFAQStore } from "./faqStore";
 import { useProgramStore } from "./programStore";
@@ -140,7 +139,6 @@ export const useAuthStore = createStore<IAuthStore>(
 			console.log("🧹 AuthStore: Resetting auth store to initial state");
 			set({ ...initialState });
 			useSystemStore.getState().reset();
-			useBlogStore.getState().reset();
 			useContactStore.getState().reset();
 			useFAQStore.getState().reset();
 			useProgramStore.getState().reset();

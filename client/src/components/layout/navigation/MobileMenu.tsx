@@ -34,7 +34,7 @@ export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
     >
       <div
         className={cn(
-          "fixed right-0 top-0 h-full w-64 bg-white dark:bg-gray-900 shadow-lg transform transition-transform",
+          "fixed right-0 top-0 h-full w-64 bg-white dark:bg-gray-800 shadow-lg transform transition-transform",
           isOpen ? "translate-x-0" : "translate-x-full"
         )}
         onClick={(e) => e.stopPropagation()}
@@ -48,7 +48,7 @@ export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
             variant="ghost"
             size="sm"
             onClick={() => setIsOpen(false)}
-            className="p-2"
+            className="p-2 text-gray-700 dark:text-gray-200"
           >
             <X className="w-6 h-6" />
           </Button>
@@ -58,16 +58,17 @@ export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
         <div className="p-6 pt-4">
           <div className="flex flex-col space-y-6">
             {navigation.map((item) => (
-              <NavItem
-                key={item.name}
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-              >
-                {item.name}
-              </NavItem>
+              <div key={item.name} className="text-lg font-medium">
+                <NavItem
+                  href={item.href}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.name}
+                </NavItem>
+              </div>
             ))}
             <div className="pt-4">
-              <Button variant="secondary" className="w-full">
+              <Button className="w-full bg-primary hover:bg-primary/90 text-white">
                 <Link href="/contact" onClick={() => setIsOpen(false)}>
                   Tư vấn miễn phí
                 </Link>
