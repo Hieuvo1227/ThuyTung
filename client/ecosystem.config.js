@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'ThuyTungClient',
+      name: 'THỦY TÙNG Client',
       script: 'node_modules/next/dist/bin/next',
       args: 'dev',
       cwd: 'C:\\inetpub\\wwwroot\\ThuyTung\\Thuytung-main\\client',

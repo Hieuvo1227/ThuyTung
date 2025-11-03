@@ -1,4 +1,4 @@
-# ThuyTung - Overseas Education Promotion Website
+# THỦY TÙNG - Overseas Education Promotion Website
 
 ThuyTung is a web application designed to promote overseas study
 programs for Vietnamese students. It provides detailed information about

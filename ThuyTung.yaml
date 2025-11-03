@@ -1,10 +1,10 @@
 ﻿type: collection.insomnia.rest/5.0
-name: ThuyTung
+name: THỦY TÙNG
 meta:
   id: wrk_e60992dc1e8141bf8cdfa22775f241e4
   created: 1758860997405
   modified: 1758860997405
-  description: "API Collection for ThuyTung"
+  description: "API Collection for THỦY TÙNG"
 collection:
   - name: auth
     meta:

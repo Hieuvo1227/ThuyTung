@@ -87,7 +87,7 @@ async function main() {
     }
     
     console.log('\n💡 Tip: Use PM2 restart to apply new --expose-gc settings');
-    console.log('   pm2 restart ThuyTungClient ThuyTungServer');
+    console.log('   pm2 restart "THỦY TÙNG Client" "THỦY TÙNG Server"');
   }
   
   console.log('\n' + '='.repeat(50));

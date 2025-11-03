@@ -1,7 +1,7 @@
 module.exports = {
   apps: [
     {
-      name: 'ThuyTungServer',
+      name: 'THỦY TÙNG Server',
       script: 'node_modules/tsx/dist/cli.mjs',
       args: 'src/index.ts',
       cwd: 'C:\\inetpub\\wwwroot\\ThuyTung\\Thuytung-main\\sever',

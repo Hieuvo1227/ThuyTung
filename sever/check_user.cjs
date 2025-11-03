@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // MongoDB connection URL from the .env file
-const DATABASE_MONGO_URL = 'mongodb://localhost:27017/thuytungDB';
+const DATABASE_MONGO_URL = 'mongodb://localhost:27017/thuy_tungDB';
 
 // User schema
 const userSchema = new mongoose.Schema({

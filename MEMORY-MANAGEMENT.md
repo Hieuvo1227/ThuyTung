@@ -13,8 +13,8 @@ If you see **HTTP Error 500.19** with `DynamicCompressionModule` error when acce
   ```
 
 **IIS requires BOTH services running:**
-- Frontend (ThuyTungClient): Port 3000
-- Backend (ThuyTungServer): Port 4040
+- Frontend (THỦY TÙNG Client): Port 3000
+- Backend (THỦY TÙNG Server): Port 4040
 
 ## Cấu hình đã thiết lập / Configuration Applied
 
@@ -42,7 +42,7 @@ pm2 monit
 #### Cách 1: Sử dụng script đơn giản
 ```powershell
 # Restart services để force GC
-pm2 restart ThuyTungClient ThuyTungServer
+pm2 restart "THỦY TÙNG Client" "THỦY TÙNG Server"
 ```
 
 #### Cách 2: Sử dụng script cleanup (khuyến nghị)
@@ -70,15 +70,15 @@ pm2 monit
 pm2 logs
 
 # Xem logs của 1 service cụ thể
-pm2 logs ThuyTungClient
-pm2 logs ThuyTungServer
+pm2 logs "THỦY TÙNG Client"
+pm2 logs "THỦY TÙNG Server"
 
 # Flush logs để giảm dung lượng disk
 pm2 flush
 
 # Restart một service
-pm2 restart ThuyTungClient
-pm2 restart ThuyTungServer
+pm2 restart "THỦY TÙNG Client"
+pm2 restart "THỦY TÙNG Server"
 
 # Lưu cấu hình hiện tại
 pm2 save
@@ -129,6 +129,6 @@ pm2 save
 ### Service không start
 ```powershell
 # Xem logs để debug
-pm2 logs ThuyTungClient --lines 50
-pm2 logs ThuyTungServer --lines 50
+pm2 logs "THỦY TÙNG Client" --lines 50
+pm2 logs "THỦY TÙNG Server" --lines 50
 ```

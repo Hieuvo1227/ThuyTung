@@ -1,7 +1,7 @@
-# ThuyTung Project - Current Structure Summary
+# THỦY TÙNG Project - Current Structure Summary
 
 ## Overview
-ThuyTung is an overseas education promotion platform for Vietnamese students, providing comprehensive study abroad program information and support services.
+THỦY TÙNG is an overseas education promotion platform for Vietnamese students, providing comprehensive study abroad program information and support services.
 
 ## Core Features
 - **Program Browsing**: Search and filter study abroad programs by country, field, and level
