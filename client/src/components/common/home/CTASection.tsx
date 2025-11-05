@@ -20,7 +20,7 @@ export default function CTASection({
   return (
     <section
       ref={ctaRef}
-      className="py-16 bg-gradient-to-r from-primary to-blue-700 text-white relative overflow-hidden"
+      className="py-5 bg-gradient-to-r from-primary to-blue-700 text-white relative overflow-hidden"
     >
       <div className="container mx-auto px-4 relative z-10">
         <motion.div

@@ -17,6 +17,7 @@ export default function Navbar() {
   const [isTopBarVisible, setIsTopBarVisible] = useState(true);
   const [prevScrollY, setPrevScrollY] = useState(0);
   const topBarRef = useRef<HTMLDivElement>(null);
+  const mainNavbarRef = useRef<HTMLDivElement>(null);
   const pathname = usePathname();
   const router = useRouter();
   const previousPathname = useRef<string | null>(null);
@@ -67,39 +68,49 @@ export default function Navbar() {
 
   // Calculate top bar height for dynamic positioning
   const [topBarHeight, setTopBarHeight] = useState(0);
+  const [mainNavbarHeight, setMainNavbarHeight] = useState(0);
 
   useEffect(() => {
-    const updateTopBarHeight = () => {
+    const updateHeights = () => {
       if (topBarRef.current) {
         setTopBarHeight(topBarRef.current.clientHeight);
+      }
+      if (mainNavbarRef.current) {
+        setMainNavbarHeight(mainNavbarRef.current.clientHeight);
       }
     };
 
     // Initial calculation
-    updateTopBarHeight();
+    updateHeights();
 
     // Update on resize
-    window.addEventListener('resize', updateTopBarHeight);
+    window.addEventListener('resize', updateHeights);
 
-    // Use MutationObserver to detect changes in top bar height
-    const observer = new MutationObserver(updateTopBarHeight);
+    // Use MutationObserver to detect changes in heights
+    const observer = new MutationObserver(updateHeights);
     if (topBarRef.current) {
       observer.observe(topBarRef.current, { childList: true, subtree: true, attributes: true });
     }
+    if (mainNavbarRef.current) {
+      observer.observe(mainNavbarRef.current, { childList: true, subtree: true, attributes: true });
+    }
 
     return () => {
-      window.removeEventListener('resize', updateTopBarHeight);
+      window.removeEventListener('resize', updateHeights);
       observer.disconnect();
     };
   }, []);
 
   // Update body padding to prevent content overlap
   useEffect(() => {
-    // MainNavbar has a fixed height of h-28 (112px)
-    const mainNavbarHeight = 112;
-    
     const totalHeight = isTopBarVisible ? topBarHeight + mainNavbarHeight : mainNavbarHeight;
     document.body.style.paddingTop = `${totalHeight}px`;
+    
+    // Set CSS variables for positioning
+    // Total navbar height (for body padding)
+    document.documentElement.style.setProperty('--navbar-height', `${totalHeight}px`);
+    // Fixed position for mobile menu (always at MainNavbar position, not affected by TopContactBar)
+    document.documentElement.style.setProperty('--main-navbar-top', `${topBarHeight}px`);
     
     // Add transition to body padding for smooth animation
     document.body.style.transition = 'padding-top 0.3s ease-in-out';
@@ -107,13 +118,14 @@ export default function Navbar() {
     return () => {
       document.body.style.transition = '';
     };
-  }, [isTopBarVisible, topBarHeight]);
+  }, [isTopBarVisible, topBarHeight, mainNavbarHeight]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50" style={{ backgroundColor: 'transparent' }}>
+    <header className="fixed top-0 left-0 right-0 w-full overflow-visible" style={{ backgroundColor: 'transparent', zIndex: 50 }}>
       {/* Combined navbar container - ensures seamless integration without gaps */}
+      {/* Updated to use max-w-screen-3xl to match the wider main navbar */}
       <div 
-        className="flex flex-col w-full bg-green-100 dark:bg-gray-800" 
+        className="flex flex-col w-full max-w-screen-3xl mx-auto bg-green-100 dark:bg-gray-800 overflow-visible" 
         style={{ 
           boxShadow: 'none', 
           borderBottom: 'none', 
@@ -127,7 +139,7 @@ export default function Navbar() {
         {!isAdminPage && (
           <div 
             ref={topBarRef}
-            className={`bg-primary dark:bg-primary transition-all duration-300 ease-in-out ${
+            className={`bg-primary dark:bg-primary/90 transition-all duration-300 ease-in-out ${
               isTopBarVisible ? 'translate-y-0' : '-translate-y-full'
             }`}
           >
@@ -137,6 +149,7 @@ export default function Navbar() {
         
         {/* MainNavbar - always visible, directly below TopContactBar */}
         <div 
+          ref={mainNavbarRef}
           className={`main-navbar w-full transition-all duration-300 ease-in-out ${
             isAdminPage 
               ? 'bg-green-200 dark:bg-blue-800' 

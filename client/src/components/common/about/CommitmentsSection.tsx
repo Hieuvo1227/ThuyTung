@@ -28,12 +28,12 @@ export default function CommitmentsSection({
   return (
     <section
       ref={commitmentsRef}
-      className="py-12 sm:py-16 bg-gray-50 dark:bg-gray-900 transition-colors"
+      className="py-5 bg-gray-50 dark:bg-gray-900 transition-colors"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4">
         {/* Tiêu đề */}
         <motion.div
-          className="bg-white dark:bg-gray-800 p-8 md:p-12 rounded-2xl shadow-xl border border-green-100 dark:border-gray-700 mb-12"
+          className="bg-white dark:bg-gray-800 p-6 sm:p-8 md:p-12 rounded-2xl shadow-xl border border-green-100 dark:border-gray-700 mb-8 sm:mb-12"
           initial={{ opacity: 0, y: 30 }}
           animate={commitmentsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.5 }}
@@ -45,14 +45,14 @@ export default function CommitmentsSection({
             transition={{ duration: 0.5 }}
           >
             <motion.h2
-              className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4 leading-snug"
+              className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-2 sm:mb-4 leading-snug"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={commitmentsInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.5 }}
             >
               Cam Kết Của <span className="text-primary">{COMPANY}</span>
             </motion.h2>
-            <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base max-w-2xl mx-auto">
+            <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base max-w-2xl mx-auto px-2">
               Chúng tôi luôn nỗ lực mang đến giá trị tốt nhất cho khách hàng và đối tác.
             </p>
           </motion.div>
@@ -63,8 +63,8 @@ export default function CommitmentsSection({
               grid grid-cols-1
               sm:grid-cols-2
               lg:grid-cols-4
-              gap-4 sm:gap-6 lg:gap-8
-              mt-12
+              gap-3 sm:gap-4 md:gap-6
+              mt-8 sm:mt-10
             "
             variants={containerVariants}
             initial="hidden"
@@ -75,7 +75,7 @@ export default function CommitmentsSection({
                 key={index}
                 className="
                   text-center flex flex-col items-center
-                  p-5 sm:p-6 bg-green-50 dark:bg-gray-700
+                  p-4 sm:p-5 bg-green-50 dark:bg-gray-700
                   rounded-2xl hover:bg-primary/5 dark:hover:bg-primary/10
                   transition-colors duration-300 shadow-sm
                 "
@@ -88,19 +88,19 @@ export default function CommitmentsSection({
               >
                 <motion.div
                   className="
-                    w-14 h-14 sm:w-16 sm:h-16
+                    w-12 h-12 sm:w-14 sm:h-14
                     bg-primary/10 dark:bg-primary/20
                     rounded-full flex items-center justify-center
-                    mb-4 sm:mb-5
+                    mb-3 sm:mb-4
                   "
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.6, ease: "easeInOut" }}
                 >
-                  <CheckCircle className="w-7 h-7 sm:w-8 sm:h-8 text-primary" />
+                  <CheckCircle className="w-6 h-6 sm:w-7 sm:h-7 text-primary" />
                 </motion.div>
 
                 <motion.h3
-                  className="text-lg sm:text-xl font-semibold text-gray-900 dark:text-white mb-2"
+                  className="text-lg sm:text-xl font-semibold text-primary dark:text-primary mb-2"
                   initial={{ opacity: 0 }}
                   animate={commitmentsInView ? { opacity: 1 } : { opacity: 0 }}
                   transition={{ delay: 0.2 + index * 0.1, duration: 0.4 }}
