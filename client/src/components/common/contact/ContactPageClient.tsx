@@ -109,7 +109,11 @@ export default function ContactPageClient() {
       <section className="bg-gradient-to-r from-primary to-secondary py-16">
         <div className="container mx-auto px-4">
           <div className="text-center text-white">
+<<<<<<< HEAD
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+=======
+            <h1 className="text-4xl lg:text-5xl font-bold mb-4">
+>>>>>>> bff8192cb8097d0aef72d5ad333df6f094fd5aa9
               Liên Hệ Tư Vấn
             </h1>
             <p className="text-xl opacity-90 max-w-3xl mx-auto">
@@ -126,7 +130,11 @@ export default function ContactPageClient() {
           <div className="lg:col-span-2">
             <Card className="bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700">
               <CardHeader>
+<<<<<<< HEAD
                 <CardTitle className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white">
+=======
+                <CardTitle className="text-gray-900 dark:text-white">
+>>>>>>> bff8192cb8097d0aef72d5ad333df6f094fd5aa9
                   Gửi thông tin tư vấn
                 </CardTitle>
                 <p className="text-gray-600 dark:text-gray-300">
@@ -326,7 +334,11 @@ export default function ContactPageClient() {
                       Văn phòng
                     </h4>
                     <p className="text-gray-700 dark:text-gray-300">
+<<<<<<< HEAD
                       24/22 Đường số 23, Phường Hiệp Bình Chánh, Tp Thủ Đức
+=======
+                      24/22 Đường số 23, Phường Hiệp Bình Chánh, Tp Thủ Đức
+>>>>>>> bff8192cb8097d0aef72d5ad333df6f094fd5aa9
                     </p>
                   </div>
                 </div>

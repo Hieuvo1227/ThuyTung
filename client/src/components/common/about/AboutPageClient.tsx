@@ -193,7 +193,11 @@ export default function AboutPageClient() {
       {/* --- HEADER --- */}
       <section className="bg-gradient-to-r from-primary to-secondary py-12 sm:py-16 md:py-20">
         <div className="container mx-auto px-4 text-center text-white">
+<<<<<<< HEAD
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+=======
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4">
+>>>>>>> bff8192cb8097d0aef72d5ad333df6f094fd5aa9
             Về Chúng Tôi
           </h1>
           <p className="text-base sm:text-lg md:text-xl max-w-3xl mx-auto opacity-90 px-2">
@@ -240,7 +244,11 @@ export default function AboutPageClient() {
                   <div className="bg-primary/10 dark:bg-primary/20 p-2 sm:p-3 rounded-lg">
                     <Target className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
                   </div>
+<<<<<<< HEAD
                   <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white">Tầm nhìn</h2>
+=======
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">Tầm nhìn</h2>
+>>>>>>> bff8192cb8097d0aef72d5ad333df6f094fd5aa9
                 </div>
                 <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 leading-relaxed">
                   Thủy Tùng trở thành cầu nối hàng đầu đưa học sinh, sinh viên và người lao động Việt Nam vươn ra thị trường quốc tế, khẳng định năng lực và bản lĩnh Việt trên toàn cầu.
@@ -256,7 +264,11 @@ export default function AboutPageClient() {
                   <div className="bg-primary/10 dark:bg-primary/20 p-2 sm:p-3 rounded-lg">
                     <Goal className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
                   </div>
+<<<<<<< HEAD
                   <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-800 dark:text-white">Sứ mệnh</h2>
+=======
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 dark:text-white">Sứ mệnh</h2>
+>>>>>>> bff8192cb8097d0aef72d5ad333df6f094fd5aa9
                 </div>
                 <div className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 leading-relaxed space-y-3 sm:space-y-4">
                   <p>

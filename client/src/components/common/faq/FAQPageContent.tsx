@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿﻿"use client";
+=======
+﻿"use client";
+>>>>>>> bff8192cb8097d0aef72d5ad333df6f094fd5aa9
 
 import React, { useEffect, useState } from "react";
 import FAQContent from "@/components/common/faq/FAQContent";
@@ -34,7 +38,11 @@ export default function FAQPageContent() {
       <section className="bg-gradient-to-r from-primary to-secondary py-16">
         <div className="container mx-auto px-4">
           <div className="text-center text-white">
+<<<<<<< HEAD
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+=======
+            <h1 className="text-4xl lg:text-5xl font-bold mb-4">
+>>>>>>> bff8192cb8097d0aef72d5ad333df6f094fd5aa9
               Hỏi & Đáp Du Học
             </h1>
             <p className="text-xl opacity-90 max-w-3xl mx-auto">

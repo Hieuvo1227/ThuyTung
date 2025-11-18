@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿﻿﻿﻿﻿﻿﻿﻿"use client";
+=======
+﻿﻿"use client";
+>>>>>>> bff8192cb8097d0aef72d5ad333df6f094fd5aa9
 
 import React, { useState, useRef, useEffect } from "react";
 import { motion, useInView, useMotionValue, useTransform, animate } from "framer-motion";
@@ -72,11 +76,19 @@ export default function HeroSection() {
               alignSelf: "flex-start",
             }}
           >
+<<<<<<< HEAD
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white leading-tight mb-4 md:mb-5">
               Kết Nối <span className="text-primary">Giáo Dục</span> & <br className="lg:hidden" />
               <span className="text-gray-900 dark:text-white">Nâng Tầm</span> <span className="text-primary">Cuộc Sống</span>
             </h1>
             <p className="text-gray-700 dark:text-gray-300 text-justify mb-4 md:mb-6 text-lg md:text-xl">
+=======
+            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 dark:text-white leading-tight mb-4 md:mb-5">
+              Kết Nối <span className="text-primary">Giáo Dục</span> & <br className="lg:hidden" />
+              <span className="text-gray-900 dark:text-white">Nâng Tầm</span> <span className="text-primary">Cuộc Sống</span>
+            </h1>
+            <p className="text-gray-700 dark:text-gray-300 text-justify mb-4 md:mb-6 text-base md:text-lg lg:text-xl">
+>>>>>>> bff8192cb8097d0aef72d5ad333df6f094fd5aa9
               Bạn đang mơ ước học tiếp Thạc sĩ tại nước ngoài và có cơ hội phát triển
               sự nghiệp trong môi trường quốc tế hiện đại?{" "}
               <span className="text-primary font-semibold">{COMPANY}</span>{" "}
@@ -175,7 +187,11 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
+<<<<<<< HEAD
       <VideoModal isOpen={isVideoModalOpen} onClose={() => setIsVideoModalOpen(false)} videoSrc="/videos/1080.mp4" title="ThuyTung" />
+=======
+      <VideoModal isOpen={isVideoModalOpen} onClose={() => setIsVideoModalOpen(false)} videoSrc="/videos/gioi_thieu.mp4" title="ThuyTung" />
+>>>>>>> bff8192cb8097d0aef72d5ad333df6f094fd5aa9
     </motion.section>
   );
 }

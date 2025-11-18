@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿﻿import ProgramsPageClient from "@/components/common/programs/ProgramsPageClient";
+=======
+﻿import ProgramsPageClient from "@/components/common/programs/ProgramsPageClient";
+>>>>>>> bff8192cb8097d0aef72d5ad333df6f094fd5aa9
 import { Metadata } from "next";
 
 
@@ -65,7 +69,11 @@ export default async function ProgramsPage({ searchParams }: ProgramsPageProps) 
         <div className="min-h-screen bg-gray-50 dark:bg-gray-900 transition-colors">
             <section className="bg-gradient-to-r from-primary to-secondary py-16">
                 <div className="container mx-auto px-4 text-center text-white">
+<<<<<<< HEAD
                     <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
+=======
+                    <h1 className="text-4xl lg:text-5xl font-bold mb-4">
+>>>>>>> bff8192cb8097d0aef72d5ad333df6f094fd5aa9
                         Chương Trình Du Học
                     </h1>
                     <p className="text-xl opacity-90 max-w-3xl mx-auto">

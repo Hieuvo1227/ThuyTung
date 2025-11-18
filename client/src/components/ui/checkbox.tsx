@@ -1,8 +1,18 @@
+<<<<<<< HEAD
 import * as React from "react"
 import * as CheckboxPrimitive from "@radix-ui/react-checkbox"
 import { Check } from "lucide-react"
 
 import { cn } from "@/lib/utils"
+=======
+"use client";
+
+import * as React from "react";
+import * as CheckboxPrimitive from "@radix-ui/react-checkbox";
+import { Check } from "lucide-react";
+
+import { cn } from "@/lib/utils";
+>>>>>>> bff8192cb8097d0aef72d5ad333df6f094fd5aa9
 
 const Checkbox = React.forwardRef<
   React.ElementRef<typeof CheckboxPrimitive.Root>,
@@ -22,7 +32,14 @@ const Checkbox = React.forwardRef<
       <Check className="h-4 w-4" />
     </CheckboxPrimitive.Indicator>
   </CheckboxPrimitive.Root>
+<<<<<<< HEAD
 ))
 Checkbox.displayName = CheckboxPrimitive.Root.displayName
 
 export { Checkbox }
+=======
+));
+Checkbox.displayName = CheckboxPrimitive.Root.displayName;
+
+export { Checkbox };
+>>>>>>> bff8192cb8097d0aef72d5ad333df6f094fd5aa9
