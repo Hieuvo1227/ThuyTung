@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xác nhận liên hệ - ThuyTung</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .header {
+            text-align: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #0056b3;
+        }
+
+        .logo {
+            max-width: 150px;
+        }
+
+        .content {
+            padding: 20px 0;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 20px 0;
+            font-size: 12px;
+            color: #666;
+            border-top: 1px solid #eee;
+        }
+
+        .info-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #0056b3;
+            padding: 15px;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <img src="https://yourwebsite.com/images/logo2.png" alt="ThuyTung" class="logo">
+        <h1>Xác nhận yêu cầu tư vấn</h1>
+    </div>
+
+    <div class="content">
+        <p>Xin chào {{name}},</p>
+
+        <p>Cảm ơn bạn đã liên hệ với ThuyTung. Chúng tôi đã nhận được yêu cầu tư vấn của bạn và sẽ liên hệ lại
+            trong thời gian sớm nhất.</p>
+
+        <div class="info-box">
+            <h3>Chi tiết yêu cầu:</h3>
+            <p><strong>Họ và tên:</strong> {{name}}</p>
+            <p><strong>Email:</strong> {{email}}</p>
+            <p><strong>Số điện thoại:</strong> {{phone}}</p>
+            {{#if program}}
+            <p><strong>Chương trình quan tâm:</strong> {{program}}</p>
+            {{/if}}
+            <p><strong>Nội dung:</strong> {{message}}</p>
+        </div>
+
+        <p>Đội ngũ tư vấn viên của chúng tôi sẽ liên hệ với bạn qua email hoặc số điện thoại trong vòng 24 giờ tới để
+            cung cấp thông tin chi tiết về các chương trình du học và giải đáp các thắc mắc của bạn.</p>
+
+        <p>Trong thời gian chờ đợi, bạn có thể tìm hiểu thêm thông tin tại website của chúng tôi.</p>
+
+        <p>Trân trọng,<br>
+            Đội ngũ ThuyTung</p>
+    </div>
+
+    <div class="footer">
+        <p>&copy; 2025 ThuyTung. Tất cả các quyền được bảo lưu.</p>
+        <p>Địa chỉ: 24/22 Đường số 23, Phường Hiệp Bình Chánh, Tp Thủ Đức</p>
+        <p>Email: support@thuytung.edu.vn | Hotline: 0908616014</p>
+    </div>
+</body>
+
+</html>
