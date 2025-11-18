@@ -5,7 +5,6 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { X } from "lucide-react";
-import { NavItem } from "./NavItem";
 import { navigation } from "./Navbar";
 
 interface MobileMenuProps {
@@ -24,52 +23,106 @@ export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
     return null;
   }
 
+  console.log('MobileMenu rendering, navigation items:', navigation);
+  console.log('MobileMenu isOpen:', isOpen);
+
   return (
-    <div
-      className={cn(
-        "lg:hidden fixed inset-0 z-[60] bg-black bg-opacity-50 transition-opacity",
-        isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+    <>
+      {/* Overlay - covers everything below MainNavbar */}
+      {isOpen && (
+        <div
+          className="lg:hidden fixed bg-black/70"
+          onClick={() => setIsOpen(false)}
+          style={{ 
+            zIndex: 10000,
+            top: 'var(--main-navbar-top, 0px)',
+            left: 0,
+            right: 0,
+            bottom: 0
+          }}
+        />
       )}
-      onClick={() => setIsOpen(false)}
-    >
+      
+      {/* Menu Panel - fixed at MainNavbar position, does not move when TopContactBar hides */}
       <div
         className={cn(
-          "fixed right-0 top-0 h-full w-64 bg-white dark:bg-gray-800 shadow-lg transform transition-transform",
+          "lg:hidden fixed right-0 w-64 shadow-2xl transition-transform duration-300 ease-in-out",
           isOpen ? "translate-x-0" : "translate-x-full"
         )}
         onClick={(e) => e.stopPropagation()}
+        style={{ 
+          zIndex: 10001,
+          backgroundColor: '#FFFFFF',
+          top: 'var(--main-navbar-top, 0px)',
+          height: 'calc(100vh - var(--main-navbar-top, 0px))',
+          display: 'flex',
+          flexDirection: 'column'
+        }}
       >
         {/* Header with close button */}
-        <div className="flex justify-between items-center p-4 border-b border-gray-200 dark:border-gray-700">
-          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+        <div 
+          className="flex justify-between items-center p-4 border-b border-gray-300 flex-shrink-0"
+          style={{ 
+            backgroundColor: '#FFFFFF',
+            minHeight: '64px',
+            boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+          }}
+        >
+          <h2 className="text-xl font-bold" style={{ color: '#111827' }}>
             Menu
-          </h3>
+          </h2>
           <Button
             variant="ghost"
             size="sm"
             onClick={() => setIsOpen(false)}
-            className="p-2 text-gray-700 dark:text-gray-200"
+            className="p-2 hover:bg-gray-100"
+            style={{ color: '#374151' }}
           >
             <X className="w-6 h-6" />
           </Button>
         </div>
 
-        {/* Menu content starting below navbar */}
-        <div className="p-6 pt-4">
-          <div className="flex flex-col space-y-6">
-            {navigation.map((item) => (
-              <div key={item.name} className="text-lg font-medium">
-                <NavItem
+        {/* Menu content */}
+        <div 
+          className="flex-1 overflow-y-auto"
+          style={{ 
+            backgroundColor: '#FFFFFF',
+            padding: '16px'
+          }}
+        >
+          <div className="flex flex-col">
+            <div className="text-sm font-semibold mb-3" style={{ color: '#6B7280' }}>
+              ĐIỀU HƯỚNG
+            </div>
+            {navigation && navigation.length > 0 ? (
+              navigation.map((item, index) => (
+                <Link
+                  key={item.name}
                   href={item.href}
                   onClick={() => setIsOpen(false)}
+                  className="block py-3 px-2 hover:bg-gray-50 rounded-md transition-colors"
+                  style={{
+                    borderBottom: index < navigation.length - 1 ? '1px solid #E5E7EB' : 'none'
+                  }}
                 >
-                  {item.name}
-                </NavItem>
+                  <div className="text-base font-medium" style={{ color: '#111827' }}>
+                    {item.name}
+                  </div>
+                </Link>
+              ))
+            ) : (
+              <div className="py-4 text-center" style={{ color: '#EF4444' }}>
+                ⚠️ Không tìm thấy menu items
               </div>
-            ))}
-            <div className="pt-4">
-              <Button className="w-full bg-primary hover:bg-primary/90 text-white">
-                <Link href="/contact" onClick={() => setIsOpen(false)}>
+            )}
+            
+            <div className="mt-6">
+              <Button 
+                className="w-full bg-primary hover:bg-primary/90 text-white font-medium" 
+                style={{ minHeight: '48px', fontSize: '16px' }}
+                onClick={() => setIsOpen(false)}
+              >
+                <Link href="/contact" className="w-full h-full flex items-center justify-center">
                   Tư vấn miễn phí
                 </Link>
               </Button>
@@ -77,6 +130,6 @@ export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

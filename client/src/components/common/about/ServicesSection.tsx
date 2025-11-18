@@ -28,12 +28,12 @@ export default function ServicesSection({
   return (
     <section
       ref={servicesRef}
-      className="py-16 bg-white dark:bg-gray-800 transition-colors"
+      className="py-5 bg-white dark:bg-gray-800 transition-colors"
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto px-4">
         {/* Header */}
         <motion.div
-          className="bg-white dark:bg-gray-800 p-8 md:p-12 rounded-2xl shadow-xl border border-green-100 dark:border-gray-700 mb-12"
+          className="bg-white dark:bg-gray-800 p-6 sm:p-8 md:p-12 rounded-2xl shadow-xl border border-green-100 dark:border-gray-700 mb-8 sm:mb-12"
           initial={{ opacity: 0, y: 30 }}
           animate={servicesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.5 }}
@@ -45,7 +45,7 @@ export default function ServicesSection({
             transition={{ duration: 0.5 }}
           >
             <motion.h2
-              className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4 leading-tight"
+              className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-3 sm:mb-4 leading-tight"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={servicesInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.5, delay: 0.1 }}
@@ -64,7 +64,7 @@ export default function ServicesSection({
 
           {/* Services Grid */}
           <motion.div
-            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mt-12"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mt-8 sm:mt-12"
             variants={containerVariants}
             initial="hidden"
             animate={servicesInView ? "visible" : "hidden"}
@@ -72,13 +72,13 @@ export default function ServicesSection({
             {services.map((service, index) => (
               <motion.div
                 key={index}
-                className="bg-green-50 dark:bg-gray-700 rounded-2xl p-6 sm:p-8 shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col h-full"
+                className="bg-green-50 dark:bg-gray-700 rounded-2xl p-5 sm:p-6 shadow-md hover:shadow-xl transition-shadow duration-300 flex flex-col h-full"
                 variants={itemVariants}
                 whileHover={{ y: -6, transition: { duration: 0.2 } }}
               >
                 {/* Title */}
                 <motion.h3
-                  className="text-xl sm:text-2xl font-semibold text-gray-900 dark:text-white mb-4 text-center"
+                  className="text-lg sm:text-xl font-semibold text-primary dark:text-primary mb-3 sm:mb-4 text-center"
                   initial={{ opacity: 0 }}
                   animate={servicesInView ? { opacity: 1 } : { opacity: 0 }}
                   transition={{ delay: 0.2 + index * 0.1, duration: 0.4 }}
@@ -88,7 +88,7 @@ export default function ServicesSection({
 
                 {/* Features */}
                 <motion.ul
-                  className="space-y-3 mt-auto"
+                  className="space-y-2 sm:space-y-3 mt-auto"
                   variants={containerVariants}
                   initial="hidden"
                   animate={servicesInView ? "visible" : "hidden"}
@@ -118,7 +118,7 @@ export default function ServicesSection({
                           damping: 10,
                         }}
                       >
-                        <CheckCircle className="w-4 h-4 sm:w-5 sm:h-5 text-primary mt-1 mr-3 flex-shrink-0" />
+                        <CheckCircle className="w-4 h-4 text-primary mt-1 mr-2 flex-shrink-0" />
                       </motion.div>
                       <span className="text-gray-700 dark:text-gray-300">{feature}</span>
                     </motion.li>

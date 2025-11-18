@@ -127,7 +127,7 @@ export default function StudyAbroadSection() {
                   transition={{ duration: 0.6, delay: 0.4 }}
                   whileHover={{ scale: 1.02 }}
                 >
-                  <div className="relative h-48 sm:h-40 rounded-2xl overflow-hidden">
+                  <div className="relative h-40 sm:h-36 md:h-44 lg:h-48 rounded-2xl overflow-hidden">
                     <Image
                       src={studyPrograms[0].image}
                       alt={studyPrograms[0].title}
@@ -186,7 +186,7 @@ export default function StudyAbroadSection() {
                   transition={{ duration: 0.6, delay: 0.5 }}
                   whileHover={{ scale: 1.02 }}
                 >
-                  <div className="relative h-32 sm:h-28 rounded-2xl overflow-hidden">
+                  <div className="relative h-28 sm:h-24 md:h-32 lg:h-36 rounded-2xl overflow-hidden">
                     <Image
                       src={studyPrograms[2].image}
                       alt={studyPrograms[2].title}
@@ -247,7 +247,7 @@ export default function StudyAbroadSection() {
                   transition={{ duration: 0.6, delay: 0.6 }}
                   whileHover={{ scale: 1.02 }}
                 >
-                  <div className="relative h-32 sm:h-28 rounded-2xl overflow-hidden">
+                  <div className="relative h-28 sm:h-24 md:h-32 lg:h-36 rounded-2xl overflow-hidden">
                     <Image
                       src={studyPrograms[1].image}
                       alt={studyPrograms[1].title}
@@ -298,7 +298,7 @@ export default function StudyAbroadSection() {
 
                 {/* CTA Card */}
                 <motion.div
-                  className="bg-gradient-to-br from-primary to-secondary rounded-2xl p-5 sm:p-6 h-40 sm:h-48 flex flex-col justify-center text-white text-center"
+                  className="bg-gradient-to-br from-primary to-secondary rounded-2xl p-5 sm:p-6 h-40 sm:h-36 md:h-44 lg:h-48 flex flex-col justify-center text-white text-center"
                   initial={{ opacity: 0, y: 30 }}
                   animate={
                     isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }
@@ -315,7 +315,7 @@ export default function StudyAbroadSection() {
                     animate={isInView ? { opacity: 1 } : { opacity: 0 }}
                     transition={{ duration: 0.5, delay: 0.9 }}
                   >
-                    <h3 className="font-bold text-base sm:text-xl leading-tight px-1">
+                    <h3 className="font-bold text-sm sm:text-base md:text-lg lg:text-xl leading-tight px-2">
                       Miễn phí 100% phí dịch vụ hỗ sơ & tư vấn du học.
                     </h3>
                   </motion.div>
@@ -337,7 +337,7 @@ export default function StudyAbroadSection() {
                   >
                     <Link
                       href="/contact"
-                      className="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded-full text-center transition-colors duration-300 w-fit text-sm sm:py-3 sm:px-6 sm:text-base mx-auto inline-block"
+                      className="bg-yellow-400 hover:bg-yellow-500 text-white font-bold py-2 px-4 rounded-full text-center transition-colors duration-300 w-fit text-xs sm:text-sm md:py-3 md:px-6 md:text-base mx-auto inline-block"
                     >
                       Đăng Ký Ngay
                     </Link>

@@ -14,26 +14,31 @@ export default function MainNavbar() {
   return (
     <>
       <MobileMenu isOpen={isMobileMenuOpen} setIsOpen={setIsMobileMenuOpen} />
-      <nav className="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 h-28 bg-green-100 dark:bg-gray-800">
-        <div className="flex justify-between items-center h-full">
-          {/* Logo: container matches nav height and centers; image scaled to be almost as tall as nav */}
-          <Link href="/" className="flex-shrink-0 flex items-center h-full overflow-hidden">
-            <Image
-              src="/images/logo2.png"
-              alt="Company logo"
-              width={200}
-              height={75}
-              className="object-contain h-16 sm:h-20 md:h-24"
-              style={{ width: 'auto' }}
-              priority
-            />
-          </Link>
+      {/* Increased width by 1/3 - using max-w-screen-3xl instead of max-w-screen-2xl */}
+      {/* Reduced height by 1/4 - from h-32 to h-24 (25% reduction) */}
+      <nav className="max-w-screen-3xl mx-auto px-4 sm:px-6 lg:px-8 h-24 bg-green-100 dark:bg-gray-800 overflow-visible">
+        {/* Restructured for smaller screens to have 3 clear sections with better spacing */}
+        <div className="flex justify-between items-center h-full pl-2 sm:pl-4">
+          {/* Logo Section - Left */}
+          <div className="flex-shrink-0 flex items-center h-full pr-4">
+            <Link href="/" className="flex items-center h-full">
+              <Image
+                src="/images/logo2.png"
+                alt="Company logo"
+                width={180}
+                height={70}
+                className="object-contain h-16 sm:h-18 md:h-20"
+                style={{ width: 'auto' }}
+                priority
+              />
+            </Link>
+          </div>
 
-          {/* Desktop Navigation Links */}
-          <div className="hidden md:flex items-center space-x-7">
+          {/* Navigation Links Section - Center */}
+          <div className="hidden md:flex items-center space-x-8 px-4">
             {navigation.map((item, index) => (
               <React.Fragment key={item.name}>
-                <div className="text-base font-medium">
+                <div className="text-lg font-medium"> {/* Increased from text-base to text-lg (50% larger) */}
                   <NavItem href={item.href}>
                     {item.name}
                   </NavItem>
@@ -45,11 +50,11 @@ export default function MainNavbar() {
             ))}
           </div>
 
-          {/* Right Side Actions */}
-          <div className="hidden md:flex flex-shrink-0 items-center space-x-3.5">
+          {/* Right Side Actions Section - Right */}
+          <div className="hidden md:flex flex-shrink-0 items-center space-x-6 pl-4">
             <ThemeToggleButton />
             <Link href={"/contact"} prefetch={true}>
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-7 py-2.5">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white px-6 py-2 text-lg"> {/* Added text-lg */}
                 Tư vấn miễn phí
               </Button>
             </Link>
