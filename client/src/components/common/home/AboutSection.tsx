@@ -191,11 +191,7 @@ export default function AboutSection() {
           >
             <div className="flex flex-col h-full justify-between">
               <div>
-<<<<<<< HEAD
                 <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4 text-center lg:text-left">
-=======
-                <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4 text-center lg:text-left">
->>>>>>> bff8192cb8097d0aef72d5ad333df6f094fd5aa9
                   Vì sao chọn{" "}
                   <span className="text-primary">Thủy Tùng</span> làm đối tác của
                   bạn ?
@@ -216,11 +212,7 @@ export default function AboutSection() {
                       <div className="w-16 h-16 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-4">
                         {feature.icon}
                       </div>
-<<<<<<< HEAD
                       <h3 className="text-lg md:text-xl font-semibold mb-3 text-gray-900 dark:text-white">
-=======
-                      <h3 className="text-xl font-semibold mb-3 text-gray-900 dark:text-white">
->>>>>>> bff8192cb8097d0aef72d5ad333df6f094fd5aa9
                         {feature.title}
                       </h3>
                       <ul className="space-y-2">

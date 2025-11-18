@@ -1,22 +1,3 @@
-<<<<<<< HEAD
-import * as React from "react"
-import * as DropdownMenuPrimitive from "@radix-ui/react-dropdown-menu"
-import { Check, ChevronRight, Circle } from "lucide-react"
-
-import { cn } from "@/lib/utils"
-
-const DropdownMenu = DropdownMenuPrimitive.Root
-
-const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger
-
-const DropdownMenuGroup = DropdownMenuPrimitive.Group
-
-const DropdownMenuPortal = DropdownMenuPrimitive.Portal
-
-const DropdownMenuSub = DropdownMenuPrimitive.Sub
-
-const DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup
-=======
 "use client";
 
 import * as React from "react";
@@ -36,16 +17,11 @@ const DropdownMenuPortal = DropdownMenuPrimitive.Portal;
 const DropdownMenuSub = DropdownMenuPrimitive.Sub;
 
 const DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup;
->>>>>>> bff8192cb8097d0aef72d5ad333df6f094fd5aa9
 
 const DropdownMenuSubTrigger = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.SubTrigger>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.SubTrigger> & {
-<<<<<<< HEAD
-    inset?: boolean
-=======
     inset?: boolean;
->>>>>>> bff8192cb8097d0aef72d5ad333df6f094fd5aa9
   }
 >(({ className, inset, children, ...props }, ref) => (
   <DropdownMenuPrimitive.SubTrigger
@@ -60,15 +36,9 @@ const DropdownMenuSubTrigger = React.forwardRef<
     {children}
     <ChevronRight className="ml-auto h-4 w-4" />
   </DropdownMenuPrimitive.SubTrigger>
-<<<<<<< HEAD
-))
-DropdownMenuSubTrigger.displayName =
-  DropdownMenuPrimitive.SubTrigger.displayName
-=======
 ));
 DropdownMenuSubTrigger.displayName =
   DropdownMenuPrimitive.SubTrigger.displayName;
->>>>>>> bff8192cb8097d0aef72d5ad333df6f094fd5aa9
 
 const DropdownMenuSubContent = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.SubContent>,
@@ -82,15 +52,9 @@ const DropdownMenuSubContent = React.forwardRef<
     )}
     {...props}
   />
-<<<<<<< HEAD
-))
-DropdownMenuSubContent.displayName =
-  DropdownMenuPrimitive.SubContent.displayName
-=======
 ));
 DropdownMenuSubContent.displayName =
   DropdownMenuPrimitive.SubContent.displayName;
->>>>>>> bff8192cb8097d0aef72d5ad333df6f094fd5aa9
 
 const DropdownMenuContent = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Content>,
@@ -107,22 +71,13 @@ const DropdownMenuContent = React.forwardRef<
       {...props}
     />
   </DropdownMenuPrimitive.Portal>
-<<<<<<< HEAD
-))
-DropdownMenuContent.displayName = DropdownMenuPrimitive.Content.displayName
-=======
 ));
 DropdownMenuContent.displayName = DropdownMenuPrimitive.Content.displayName;
->>>>>>> bff8192cb8097d0aef72d5ad333df6f094fd5aa9
 
 const DropdownMenuItem = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Item> & {
-<<<<<<< HEAD
-    inset?: boolean
-=======
     inset?: boolean;
->>>>>>> bff8192cb8097d0aef72d5ad333df6f094fd5aa9
   }
 >(({ className, inset, ...props }, ref) => (
   <DropdownMenuPrimitive.Item
@@ -134,13 +89,8 @@ const DropdownMenuItem = React.forwardRef<
     )}
     {...props}
   />
-<<<<<<< HEAD
-))
-DropdownMenuItem.displayName = DropdownMenuPrimitive.Item.displayName
-=======
 ));
 DropdownMenuItem.displayName = DropdownMenuPrimitive.Item.displayName;
->>>>>>> bff8192cb8097d0aef72d5ad333df6f094fd5aa9
 
 const DropdownMenuCheckboxItem = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.CheckboxItem>,
@@ -162,15 +112,9 @@ const DropdownMenuCheckboxItem = React.forwardRef<
     </span>
     {children}
   </DropdownMenuPrimitive.CheckboxItem>
-<<<<<<< HEAD
-))
-DropdownMenuCheckboxItem.displayName =
-  DropdownMenuPrimitive.CheckboxItem.displayName
-=======
 ));
 DropdownMenuCheckboxItem.displayName =
   DropdownMenuPrimitive.CheckboxItem.displayName;
->>>>>>> bff8192cb8097d0aef72d5ad333df6f094fd5aa9
 
 const DropdownMenuRadioItem = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.RadioItem>,
@@ -191,95 +135,5 @@ const DropdownMenuRadioItem = React.forwardRef<
     </span>
     {children}
   </DropdownMenuPrimitive.RadioItem>
-<<<<<<< HEAD
-))
-DropdownMenuRadioItem.displayName = DropdownMenuPrimitive.RadioItem.displayName
-=======
 ));
 DropdownMenuRadioItem.displayName = DropdownMenuPrimitive.RadioItem.displayName;
->>>>>>> bff8192cb8097d0aef72d5ad333df6f094fd5aa9
-
-const DropdownMenuLabel = React.forwardRef<
-  React.ElementRef<typeof DropdownMenuPrimitive.Label>,
-  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Label> & {
-<<<<<<< HEAD
-    inset?: boolean
-=======
-    inset?: boolean;
->>>>>>> bff8192cb8097d0aef72d5ad333df6f094fd5aa9
-  }
->(({ className, inset, ...props }, ref) => (
-  <DropdownMenuPrimitive.Label
-    ref={ref}
-    className={cn(
-      "px-2 py-1.5 text-sm font-semibold",
-      inset && "pl-8",
-      className
-    )}
-    {...props}
-  />
-<<<<<<< HEAD
-))
-DropdownMenuLabel.displayName = DropdownMenuPrimitive.Label.displayName
-=======
-));
-DropdownMenuLabel.displayName = DropdownMenuPrimitive.Label.displayName;
->>>>>>> bff8192cb8097d0aef72d5ad333df6f094fd5aa9
-
-const DropdownMenuSeparator = React.forwardRef<
-  React.ElementRef<typeof DropdownMenuPrimitive.Separator>,
-  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Separator>
->(({ className, ...props }, ref) => (
-  <DropdownMenuPrimitive.Separator
-    ref={ref}
-    className={cn("-mx-1 my-1 h-px bg-muted", className)}
-    {...props}
-  />
-<<<<<<< HEAD
-))
-DropdownMenuSeparator.displayName = DropdownMenuPrimitive.Separator.displayName
-=======
-));
-DropdownMenuSeparator.displayName = DropdownMenuPrimitive.Separator.displayName;
->>>>>>> bff8192cb8097d0aef72d5ad333df6f094fd5aa9
-
-const DropdownMenuShortcut = ({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLSpanElement>) => {
-  return (
-    <span
-      className={cn("ml-auto text-xs tracking-widest opacity-60", className)}
-      {...props}
-    />
-<<<<<<< HEAD
-  )
-}
-DropdownMenuShortcut.displayName = "DropdownMenuShortcut"
-=======
-  );
-};
-DropdownMenuShortcut.displayName = "DropdownMenuShortcut";
->>>>>>> bff8192cb8097d0aef72d5ad333df6f094fd5aa9
-
-export {
-  DropdownMenu,
-  DropdownMenuTrigger,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuCheckboxItem,
-  DropdownMenuRadioItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuShortcut,
-  DropdownMenuGroup,
-  DropdownMenuPortal,
-  DropdownMenuSub,
-  DropdownMenuSubContent,
-  DropdownMenuSubTrigger,
-  DropdownMenuRadioGroup,
-<<<<<<< HEAD
-}
-=======
-};
->>>>>>> bff8192cb8097d0aef72d5ad333df6f094fd5aa9
