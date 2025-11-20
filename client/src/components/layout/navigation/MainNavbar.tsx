@@ -13,11 +13,7 @@ export default function MainNavbar() {
 
   return (
     <>
-      <MobileMenu isOpen={isMobileMenuOpen} setIsOpen={setIsMobileMenuOpen} />
-      {/* Increased width by 1/3 - using max-w-screen-3xl instead of max-w-screen-2xl */}
-      {/* Reduced height by 1/4 - from h-32 to h-24 (25% reduction) */}
       <nav className="max-w-screen-3xl mx-auto px-2 sm:px-4 lg:px-6 h-24 bg-green-100 dark:bg-gray-800 overflow-visible">
-        {/* Restructured for smaller screens to have 3 clear sections with better spacing */}
         <div className="flex justify-between items-center h-full pl-2 sm:pl-3">
           {/* Logo Section - Left */}
           <div className="flex-shrink-0 flex items-center h-full pr-3 lg:pr-5">
@@ -78,6 +74,11 @@ export default function MainNavbar() {
           </div>
         </div>
       </nav>
+      
+      {/* Mobile Menu - Only rendered on mobile devices */}
+      <div className="md:hidden">
+        <MobileMenu isOpen={isMobileMenuOpen} setIsOpen={setIsMobileMenuOpen} />
+      </div>
     </>
   );
 }

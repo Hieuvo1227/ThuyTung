@@ -1,4 +1,4 @@
-﻿/** @type {import('tailwindcss').Config} */
+﻿﻿﻿﻿﻿/** @type {import('tailwindcss').Config} */
 export const content = [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -30,6 +30,21 @@ export const theme = {
                 700: "#1d4ed8",
                 DEFAULT: "#0071BC",
             },
+            border: "hsl(var(--border))",
+            background: "hsl(var(--background))",
+            foreground: "hsl(var(--foreground))",
+            card: "hsl(var(--card))",
+            "card-foreground": "hsl(var(--card-foreground))",
+            popover: "hsl(var(--popover))",
+            "popover-foreground": "hsl(var(--popover-foreground))",
+            muted: "hsl(var(--muted))",
+            "muted-foreground": "hsl(var(--muted-foreground))",
+            accent: "hsl(var(--accent))",
+            "accent-foreground": "hsl(var(--accent-foreground))",
+            destructive: "hsl(var(--destructive))",
+            "destructive-foreground": "hsl(var(--destructive-foreground))",
+            ring: "hsl(var(--ring))",
+            radius: "var(--radius)",
         },
         screens: {
             'xs': '475px',

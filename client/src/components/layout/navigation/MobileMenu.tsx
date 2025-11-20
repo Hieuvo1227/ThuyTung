@@ -31,10 +31,10 @@ export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
       {/* Overlay - covers everything below MainNavbar */}
       {isOpen && (
         <div
-          className="lg:hidden fixed bg-black/70"
+          className="lg:hidden fixed bg-black/70 mobile-menu-overlay"
           onClick={() => setIsOpen(false)}
           style={{ 
-            zIndex: 10000,
+            zIndex: 999,
             top: 'var(--main-navbar-top, 0px)',
             left: 0,
             right: 0,
@@ -46,17 +46,17 @@ export default function MobileMenu({ isOpen, setIsOpen }: MobileMenuProps) {
       {/* Menu Panel - fixed at MainNavbar position, does not move when TopContactBar hides */}
       <div
         className={cn(
-          "lg:hidden fixed right-0 w-64 shadow-2xl transition-transform duration-300 ease-in-out",
-          isOpen ? "translate-x-0" : "translate-x-full"
+          "lg:hidden fixed right-0 w-64 shadow-2xl transition-transform duration-300 ease-in-out mobile-menu-panel"
         )}
         onClick={(e) => e.stopPropagation()}
         style={{ 
-          zIndex: 10001,
+          zIndex: 1003,
           backgroundColor: '#FFFFFF',
           top: 'var(--main-navbar-top, 0px)',
           height: 'calc(100vh - var(--main-navbar-top, 0px))',
           display: 'flex',
-          flexDirection: 'column'
+          flexDirection: 'column',
+          transform: isOpen ? "translateX(0)" : "translateX(100%)"
         }}
       >
         {/* Header with close button */}

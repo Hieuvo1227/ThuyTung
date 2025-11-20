@@ -15,6 +15,9 @@ export function NavItem({ href, children, onClick }: NavItemProps) {
   const isActive =
     pathname === href || (href !== "/" && pathname.startsWith(href));
 
+  // Log for debugging
+  console.log('NavItem rendering:', { href, children, isActive });
+
   return (
     <Link
       href={href}

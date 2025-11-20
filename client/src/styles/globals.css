@@ -10,19 +10,19 @@
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 184 72% 52%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 224 53% 60%;
-    --secondary-foreground: 222.2 84% 4.9%;
-    --muted: 210 40% 96%;
+    --primary: 142.1 76.2% 36.3%;
+    --primary-foreground: 355.7 100% 97.3%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96%;
-    --accent-foreground: 222.2 84% 4.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 184 72% 52%;
+    --ring: 142.1 76.2% 36.3%;
     --radius: 0.5rem;
   }
 
@@ -33,8 +33,8 @@
     --card-foreground: 210 40% 98%;
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-    --primary: 184 72% 52%;
-    --primary-foreground: 222.2 84% 4.9%;
+    --primary: 142.1 76.2% 36.3%;
+    --primary-foreground: 355.7 100% 97.3%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
     --muted: 217.2 32.6% 17.5%;
@@ -45,30 +45,30 @@
     --destructive-foreground: 210 40% 98%;
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 184 72% 52%;
+    --ring: 142.1 76.2% 36.3%;
   }
 }
 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom styles */
 html {
   scroll-behavior: smooth;
 }
 
 body {
   font-family: 'Inter', sans-serif;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  line-height: 1.6;
 }
 
-/* All elements transition for smooth theme switching */
-* {
-  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
-}
-
-/* Button cursor pointer */
-button {
-  cursor: pointer;
-}
-
-/* Custom scrollbar */
+/* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -77,103 +77,957 @@ button {
   background: #f1f1f1;
 }
 
-.dark ::-webkit-scrollbar-track {
-  background: #374151;
-}
-
 ::-webkit-scrollbar-thumb {
-  background: #4FB7B3;
+  background: #888;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #3A9693;
+  background: #555;
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-track {
+  background: #2d3748;
 }
 
 .dark ::-webkit-scrollbar-thumb {
-  background: #6B7280;
+  background: #4a5568;
 }
 
 .dark ::-webkit-scrollbar-thumb:hover {
-  background: #9CA3AF;
+  background: #718096;
 }
 
-/* NProgress Loading Bar Styles */
-#nprogress {
-  pointer-events: none;
+/* Animation keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-#nprogress .bar {
-  background: linear-gradient(90deg, #3B82F6, #8B5CF6, #EC4899);
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromTop {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromBottom {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
+/* Custom utility classes */
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+.slide-in-left {
+  animation: slideInFromLeft 0.5s ease-out;
+}
+
+.slide-in-right {
+  animation: slideInFromRight 0.5s ease-out;
+}
+
+.slide-in-top {
+  animation: slideInFromTop 0.5s ease-out;
+}
+
+.slide-in-bottom {
+  animation: slideInFromBottom 0.5s ease-out;
+}
+
+/* Button hover effects */
+.btn-hover-scale {
+  transition: transform 0.2s ease-in-out;
+}
+
+.btn-hover-scale:hover {
+  transform: scale(1.05);
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Text gradient */
+.text-gradient {
+  background: linear-gradient(135deg, #0b803c 0%, #10b981 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Background gradient */
+.bg-gradient {
+  background: linear-gradient(135deg, #0b803c 0%, #10b981 100%);
+}
+
+/* Divider styles */
+.divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+}
+
+.dark .divider {
+  background: linear-gradient(to right, transparent, #4a5568, transparent);
+}
+
+/* Section padding */
+.section-padding {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (min-width: 768px) {
+  .section-padding {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+/* Responsive text sizes */
+.responsive-text-sm {
+  font-size: 0.875rem;
+}
+
+.responsive-text-base {
+  font-size: 1rem;
+}
+
+.responsive-text-lg {
+  font-size: 1.125rem;
+}
+
+.responsive-text-xl {
+  font-size: 1.25rem;
+}
+
+.responsive-text-2xl {
+  font-size: 1.5rem;
+}
+
+.responsive-text-3xl {
+  font-size: 1.875rem;
+}
+
+.responsive-text-4xl {
+  font-size: 2.25rem;
+}
+
+.responsive-text-5xl {
+  font-size: 3rem;
+}
+
+.responsive-text-6xl {
+  font-size: 3.75rem;
+}
+
+@media (min-width: 768px) {
+  .responsive-text-sm {
+    font-size: 1rem;
+  }
+  
+  .responsive-text-base {
+    font-size: 1.125rem;
+  }
+  
+  .responsive-text-lg {
+    font-size: 1.25rem;
+  }
+  
+  .responsive-text-xl {
+    font-size: 1.5rem;
+  }
+  
+  .responsive-text-2xl {
+    font-size: 1.875rem;
+  }
+  
+  .responsive-text-3xl {
+    font-size: 2.25rem;
+  }
+  
+  .responsive-text-4xl {
+    font-size: 2.5rem;
+  }
+  
+  .responsive-text-5xl {
+    font-size: 3rem;
+  }
+  
+  .responsive-text-6xl {
+    font-size: 3.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-text-sm {
+    font-size: 1.125rem;
+  }
+  
+  .responsive-text-base {
+    font-size: 1.25rem;
+  }
+  
+  .responsive-text-lg {
+    font-size: 1.5rem;
+  }
+  
+  .responsive-text-xl {
+    font-size: 1.875rem;
+  }
+  
+  .responsive-text-2xl {
+    font-size: 2.25rem;
+  }
+  
+  .responsive-text-3xl {
+    font-size: 3rem;
+  }
+  
+  .responsive-text-4xl {
+    font-size: 3.75rem;
+  }
+  
+  .responsive-text-5xl {
+    font-size: 4rem;
+  }
+  
+  .responsive-text-6xl {
+    font-size: 5rem;
+  }
+}
+
+/* Specific adjustments for 1024px screen width */
+@media (min-width: 1020px) and (max-width: 1030px) {
+  .main-navbar .flex-1 {
+    flex: 0 0 auto;
+  }
+  
+  .main-navbar .space-x-3 {
+    gap: 0.5rem;
+  }
+  
+  .main-navbar .text-sm {
+    font-size: 0.8125rem;
+  }
+  
+  .main-navbar .px-3 {
+    padding-left: 0.625rem;
+    padding-right: 0.625rem;
+  }
+  
+  .main-navbar .py-1\.5 {
+    padding-top: 0.375rem;
+    padding-bottom: 0.375rem;
+  }
+  
+  .main-navbar .hidden\/1024 {
+    display: none;
+  }
+  
+  .main-navbar .nav-item-1024 {
+    font-size: 0.875rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  
+  /* Fix for 1024px navigation text size */
+  .nav-item-adjusted {
+    font-size: 1.125rem;
+  }
+}
+
+/* Improved balance for medium and large screens */
+@media (min-width: 768px) {
+  .nav-item-adjusted {
+    font-size: 1.125rem;
+  }
+  
+  .main-navbar .pr-6 {
+    padding-right: 1.5rem;
+  }
+  
+  .main-navbar .pr-8 {
+    padding-right: 2rem;
+  }
+}
+
+/* Additional balancing for larger screens */
+@media (min-width: 1024px) {
+  .main-navbar .space-x-8 {
+    gap: 2rem;
+  }
+  
+  .main-navbar .space-x-6 {
+    gap: 1.5rem;
+  }
+  
+  .nav-item-adjusted {
+    font-size: 1.25rem;
+  }
+}
+
+/* Overall navbar balance improvements */
+.main-navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.main-navbar .flex-1 {
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+/* Topbar and Navbar optimization for all screen sizes */
+.topbar-container {
+  width: 100%;
+}
+
+.topbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.navbar-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Equal spacing for all components */
+.navbar-logo {
+  flex: 0 0 auto;
+}
+
+.navbar-nav {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.navbar-actions {
+  flex: 0 0 auto;
+}
+
+/* Mobile view adjustments */
+@media (max-width: 767px) {
+  .topbar-mobile {
+    padding: 0.5rem 0;
+  }
+  
+  .navbar-mobile-toggle {
+    padding-right: 1rem;
+  }
+}
+
+/* Tablet view adjustments */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .topbar-desktop-left {
+    gap: 1.5rem;
+  }
+  
+  .topbar-desktop-right {
+    gap: 1.5rem;
+  }
+  
+  .navbar-nav-links {
+    gap: 2rem;
+  }
+  
+  .navbar-actions {
+    gap: 1.5rem;
+  }
+}
+
+/* Desktop view adjustments */
+@media (min-width: 1024px) {
+  .topbar-desktop-left {
+    gap: 2rem;
+  }
+  
+  .topbar-desktop-center {
+    gap: 1rem;
+  }
+  
+  .topbar-desktop-right {
+    gap: 2rem;
+  }
+  
+  .navbar-nav-links {
+    gap: 2.5rem;
+  }
+  
+  .navbar-actions {
+    gap: 2rem;
+  }
+}
+
+/* Large desktop adjustments */
+@media (min-width: 1280px) {
+  .topbar-desktop-left {
+    gap: 2.5rem;
+  }
+  
+  .topbar-desktop-center {
+    gap: 1.5rem;
+  }
+  
+  .topbar-desktop-right {
+    gap: 2.5rem;
+  }
+  
+  .navbar-nav-links {
+    gap: 3rem;
+  }
+  
+  .navbar-actions {
+    gap: 2.5rem;
+  }
+}
+
+/* Prevent content overlap */
+.topbar-container,
+.navbar-container {
+  position: relative;
+  z-index: 50;
+}
+
+/* Ensure proper height distribution */
+.topbar-container {
+  min-height: 2.5rem;
+}
+
+.navbar-container {
+  min-height: 6rem;
+}
+
+/* Spacing between topbar and navbar */
+.topbar-section {
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.navbar-section {
+  margin-top: 0;
+  border-top: none;
+}
+
+/* Equal distribution of space */
+.navbar-header {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.navbar-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+/* Prevent content overlap and ensure proper stacking */
+.topbar-section,
+.navbar-section {
+  position: relative;
+  width: 100%;
+}
+
+/* Ensure smooth transitions */
+.transition-all {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Responsive height adjustments */
+@media (max-width: 767px) {
+  .topbar-container {
+    min-height: 3rem;
+  }
+  
+  .navbar-container {
+    min-height: 6rem;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .topbar-container {
+    min-height: 2.5rem;
+  }
+  
+  .navbar-container {
+    min-height: 6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .topbar-container {
+    min-height: 2.5rem;
+  }
+  
+  .navbar-container {
+    min-height: 6rem;
+  }
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 767px) {
+  .navbar-content {
+    padding: 0 1rem;
+  }
+  
+  .navbar-logo {
+    max-width: 50%;
+  }
+  
+  .navbar-actions {
+    max-width: 50%;
+  }
+  
+  /* Ensure proper spacing on mobile */
+  .navbar-mobile-toggle {
+    padding-right: 0.5rem;
+  }
+}
+
+/* Fix navigation bar overlap issues */
+.navbar-header {
   position: fixed;
-  z-index: 9999;
   top: 0;
   left: 0;
+  right: 0;
   width: 100%;
-  height: 2px;
-  box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
+  z-index: 1000;
 }
 
-#nprogress .peg {
-  display: block;
-  position: absolute;
-  right: 0px;
-  width: 100px;
+.navbar-wrapper {
+  position: relative;
+  z-index: 1000;
+}
+
+.topbar-section {
+  position: relative;
+  z-index: 1001;
+}
+
+.navbar-section {
+  position: relative;
+  z-index: 1002;
+}
+
+/* Ensure proper stacking context */
+* {
+  isolation: isolate;
+}
+
+/* Prevent content from overlapping navbar */
+body {
+  padding-top: calc(var(--topbar-height, 0px) + var(--navbar-height, 80px));
+}
+
+/* Ensure mobile menu doesn't overlap navbar */
+.mobile-menu-overlay {
+  z-index: 999;
+}
+
+.mobile-menu-panel {
+  z-index: 1003;
+}
+
+/* Clear any conflicting z-index values */
+.z-50 {
+  z-index: 50 !important;
+}
+
+.z-40 {
+  z-index: 40 !important;
+}
+
+/* Ensure main content doesn't overlap with navbar */
+.main-content {
+  margin-top: calc(var(--topbar-height, 0px) + var(--navbar-height, 0px));
+  position: relative;
+  z-index: 1;
+}
+
+/* Add padding to account for fixed navbar */
+.page-wrapper {
+  padding-top: calc(var(--topbar-height, 0px) + var(--navbar-height, 0px));
+  position: relative;
+}
+
+/* Ensure proper spacing for all page content */
+.page-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* Desktop-specific optimizations for balanced layout */
+@media (min-width: 1024px) {
+  .topbar-container {
+    min-height: 2.5rem;
+  }
+  
+  .navbar-container {
+    min-height: 5rem;
+  }
+  
+  /* Balance topbar content distribution */
+  .topbar-desktop-left {
+    flex: 0 0 auto;
+    min-width: 250px;
+  }
+  
+  .topbar-desktop-center {
+    flex: 1 1 auto;
+    text-align: center;
+    justify-content: center;
+  }
+  
+  .topbar-desktop-right {
+    flex: 0 0 auto;
+    min-width: 300px;
+    justify-content: flex-end;
+  }
+  
+  /* Balance main navbar content distribution */
+  .navbar-logo {
+    flex: 0 0 auto;
+    max-width: 25%;
+  }
+  
+  .navbar-nav {
+    flex: 1 1 auto;
+    justify-content: center;
+  }
+  
+  .navbar-actions {
+    flex: 0 0 auto;
+    max-width: 25%;
+    justify-content: flex-end;
+  }
+  
+  /* Ensure proper spacing between navbar elements */
+  .navbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  /* Navigation link spacing */
+  .navbar-nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2.5rem;
+  }
+  
+  /* Adjust navigation item sizing */
+  .navbar-nav-item {
+    padding: 0 0.5rem;
+  }
+  
+  /* Button sizing for desktop */
+  .navbar-button {
+    padding: 0.625rem 1.5rem;
+    font-size: 1.125rem;
+  }
+}
+
+/* Large desktop adjustments */
+@media (min-width: 1280px) {
+  .topbar-desktop-left {
+    min-width: 300px;
+  }
+  
+  .topbar-desktop-right {
+    min-width: 350px;
+  }
+  
+  .navbar-logo {
+    max-width: 20%;
+  }
+  
+  .navbar-actions {
+    max-width: 20%;
+  }
+  
+  .navbar-nav-links {
+    gap: 3rem;
+  }
+  
+  .navbar-button {
+    padding: 0.75rem 1.75rem;
+    font-size: 1.25rem;
+  }
+}
+
+/* Ensure content doesn't overflow on desktop */
+@media (min-width: 1024px) {
+  .topbar-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+  }
+  
+  .topbar-phone,
+  .topbar-email,
+  .topbar-hours {
+    white-space: nowrap;
+  }
+  
+  .topbar-address {
+    white-space: normal;
+    word-break: break-word;
+    text-align: center;
+  }
+  
+  .topbar-social {
+    justify-content: flex-end;
+  }
+}
+
+/* Ensure all navigation items are visible */
+.navbar-nav-links {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: nowrap;
+  gap: 1.5rem; /* Default spacing */
+}
+
+/* Make sure each navigation item takes up appropriate space */
+.navbar-nav-item {
+  display: block !important;
+  flex: 0 0 auto; /* Don't grow or shrink */
+  padding: 0 0.25rem;
+  white-space: nowrap;
+  overflow: visible;
+  min-width: 0; /* Allow content to determine width */
+}
+
+/* Ensure the navigation container has enough space */
+.navbar-nav {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+  width: 100%;
+  max-width: none;
+  overflow: visible;
+  min-width: 0;
+}
+
+/* Ensure navbar elements are visible and properly layered */
+.navbar-container {
+  position: relative;
+  z-index: 1002;
+}
+
+.navbar-content {
+  position: relative;
+  z-index: 1003;
+}
+
+.navbar-nav {
+  position: relative;
+  z-index: 1004;
+}
+
+.navbar-nav-links {
+  position: relative;
+  z-index: 1005;
+}
+
+.navbar-nav-item {
+  position: relative;
+  z-index: 1006;
+}
+
+/* Adjust font sizes for smaller text */
+.nav-item-adjusted {
+  font-size: 1.125rem; /* text-lg */
+  white-space: nowrap;
+  overflow: visible;
+  text-overflow: clip;
+}
+
+.navbar-button {
+  font-size: 1rem; /* text-base */
+  padding: 0.5rem 1.5rem;
+}
+
+/* Ensure proper spacing with new sizes */
+@media (min-width: 768px) {
+  .navbar-nav-links {
+    gap: 1.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .navbar-nav-links {
+    gap: 1.75rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .navbar-nav-links {
+    gap: 2rem;
+  }
+}
+
+/* Adjust logo sizing to prevent overflow */
+.navbar-logo {
+  flex: 0 0 auto;
+  max-width: 25%;
   height: 100%;
-  box-shadow: 0 0 10px rgba(59, 130, 246, 0.8), 0 0 5px rgba(59, 130, 246, 0.8);
-  opacity: 1.0;
-  transform: rotate(3deg) translate(0px, -4px);
+  display: flex;
+  align-items: center;
 }
 
-#nprogress .spinner {
-  display: block;
-  position: fixed;
-  z-index: 9999;
-  top: 15px;
-  right: 15px;
+.navbar-logo img {
+  height: 100%;
+  max-height: 100%;
+  width: auto;
+  object-fit: contain;
 }
 
-#nprogress .spinner-icon {
-  width: 18px;
-  height: 18px;
-  box-sizing: border-box;
-  border: solid 2px transparent;
-  border-top-color: #3B82F6;
-  border-left-color: #3B82F6;
-  border-radius: 50%;
-  animation: nprogress-spinner 400ms linear infinite;
+.navbar-logo a {
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
-.nprogress-custom {
+/* Ensure navbar has proper height */
+.navbar-container {
+  height: 5rem; /* 80px */
+  min-height: 5rem;
   overflow: hidden;
-  position: absolute;
+  position: relative;
+  z-index: 1002;
 }
 
-.nprogress-custom .bar {
-  background: linear-gradient(90deg, #3B82F6, #8B5CF6, #EC4899);
-}
-
-@keyframes nprogress-spinner {
-  0% {
-    transform: rotate(0deg);
-  }
-
-  100% {
-    transform: rotate(360deg);
+@media (max-width: 767px) {
+  .navbar-container {
+    height: 4rem; /* 64px on mobile */
+    min-height: 4rem;
   }
 }
 
-/* Dark mode adjustments */
-.dark #nprogress .bar {
-  background: linear-gradient(90deg, #60A5FA, #A78BFA, #F472B6);
-  box-shadow: 0 0 10px rgba(96, 165, 250, 0.5);
+/* Ensure all navigation items are visible */
+.navbar-nav-links {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  flex-wrap: nowrap;
+  gap: 1.5rem; /* Default spacing */
 }
 
-.dark #nprogress .peg {
-  box-shadow: 0 0 10px rgba(96, 165, 250, 0.8), 0 0 5px rgba(96, 165, 250, 0.8);
+/* Make sure each navigation item takes up appropriate space */
+.navbar-nav-item {
+  display: block !important;
+  flex: 0 0 auto; /* Don't grow or shrink */
+  padding: 0 0.25rem;
+  white-space: nowrap;
+  overflow: visible;
+  min-width: 0; /* Allow content to determine width */
 }
 
-.dark #nprogress .spinner-icon {
-  border-top-color: #60A5FA;
-  border-left-color: #60A5FA;
+/* Ensure the navigation container has enough space */
+.navbar-nav {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+  width: 100%;
+  max-width: none;
+  overflow: visible;
+  min-width: 0;
+}
+
+/* Adjustments for 1024px specific issues */
+@media (min-width: 1020px) and (max-width: 1030px) {
+  body {
+    padding-top: calc(var(--topbar-height, 0px) + 8rem);
+  }
+  
+  /* Ensure navbar doesn't overflow */
+  .navbar-container {
+    overflow: hidden !important;
+    max-height: 8rem !important;
+  }
+  
+  .navbar-content {
+    overflow: hidden !important;
+  }
 }

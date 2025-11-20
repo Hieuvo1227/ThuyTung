@@ -175,7 +175,7 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      <VideoModal isOpen={isVideoModalOpen} onClose={() => setIsVideoModalOpen(false)} videoSrc="/videos/1080.mp4" title="ThuyTung" />
+      <VideoModal isOpen={isVideoModalOpen} onClose={() => setIsVideoModalOpen(false)} videoSrc="/videos/gioi_thieu.mp4" title="ThuyTung" />
     </motion.section>
   );
 }

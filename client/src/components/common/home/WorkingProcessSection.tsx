@@ -115,7 +115,7 @@ export default function WorkingProcessSection() {
                     animate={isInView ? { opacity: 1, y: 0 } : {}}
                     transition={{ duration: 0.6 }}
                 >
-                    <h2 className="pt-10 text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 dark:text-white mb-4">
+                    <h2 className="pt-10 text-3xl lg:text-4xl font-bold text-gray-900 dark:text-white mb-4">
                         Quy Trình Làm Việc Tại <span className="text-primary">{COMPANY}</span>
                     </h2>
                     <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
@@ -158,7 +158,7 @@ export default function WorkingProcessSection() {
                             <div className="bg-white dark:bg-gray-800 pt-16 p-6 rounded-xl border border-gray-200 dark:border-gray-700 w-full shadow-lg h-full flex flex-col transition-all duration-300 group-hover:shadow-2xl group-hover:border-primary/50">
                                 <div className="flex items-center justify-center gap-2 mb-2">
                                     <step.icon className="w-5 h-5 text-primary group-hover:scale-110 transition-transform duration-300" />
-                                    <h3 className="text-lg md:text-xl font-semibold text-primary">
+                                    <h3 className="text-lg font-semibold text-primary">
                                         {step.title}
                                     </h3>
                                 </div>

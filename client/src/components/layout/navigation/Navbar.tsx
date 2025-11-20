@@ -13,6 +13,9 @@ export const navigation = [
   { name: "LIÊN HỆ", href: "/contact" },
 ];
 
+// Log navigation data for debugging
+console.log('Navigation data exported:', navigation);
+
 export default function Navbar() {
   const [isTopBarVisible, setIsTopBarVisible] = useState(true);
   const [prevScrollY, setPrevScrollY] = useState(0);
@@ -106,9 +109,13 @@ export default function Navbar() {
     const totalHeight = isTopBarVisible ? topBarHeight + mainNavbarHeight : mainNavbarHeight;
     document.body.style.paddingTop = `${totalHeight}px`;
     
+    // Log for debugging
+    console.log('Navbar heights:', { topBarHeight, mainNavbarHeight, totalHeight });
+    
     // Set CSS variables for positioning
     // Total navbar height (for body padding)
-    document.documentElement.style.setProperty('--navbar-height', `${totalHeight}px`);
+    document.documentElement.style.setProperty('--navbar-height', `${mainNavbarHeight}px`);
+    document.documentElement.style.setProperty('--topbar-height', `${topBarHeight}px`);
     // Fixed position for mobile menu (always at MainNavbar position, not affected by TopContactBar)
     document.documentElement.style.setProperty('--main-navbar-top', `${topBarHeight}px`);
     
@@ -121,27 +128,32 @@ export default function Navbar() {
   }, [isTopBarVisible, topBarHeight, mainNavbarHeight]);
 
   return (
-    <header className="fixed top-0 left-0 right-0 w-full overflow-visible" style={{ backgroundColor: 'transparent', zIndex: 50 }}>
+    <header className="fixed top-0 left-0 right-0 w-full overflow-visible navbar-header" style={{ backgroundColor: 'transparent', zIndex: 1000 }}>
       {/* Combined navbar container - ensures seamless integration without gaps */}
-      {/* Updated to use max-w-screen-3xl to match the wider main navbar */}
       <div 
-        className="flex flex-col w-full max-w-screen-3xl mx-auto bg-green-100 dark:bg-gray-800 overflow-visible" 
+        className="flex flex-col w-full bg-green-100 dark:bg-gray-800 overflow-visible navbar-wrapper" 
         style={{ 
           boxShadow: 'none', 
           borderBottom: 'none', 
           paddingBottom: '0', 
           marginBottom: '0',
           transform: isTopBarVisible ? 'translateY(0)' : `translateY(-${topBarHeight}px)`,
-          transition: 'transform 0.3s ease-in-out'
+          transition: 'transform 0.3s ease-in-out',
+          position: 'relative',
+          zIndex: 1000
         }}
       >
         {/* TopContactBar - appears above MainNavbar when visible, hidden on admin pages */}
         {!isAdminPage && (
           <div 
             ref={topBarRef}
-            className={`bg-primary dark:bg-primary/90 transition-all duration-300 ease-in-out ${
+            className={`bg-primary dark:bg-primary/90 transition-all duration-300 ease-in-out topbar-section ${
               isTopBarVisible ? 'translate-y-0' : '-translate-y-full'
             }`}
+            style={{ 
+              position: 'relative',
+              zIndex: 1001
+            }}
           >
             <TopContactBar />
           </div>
@@ -150,7 +162,7 @@ export default function Navbar() {
         {/* MainNavbar - always visible, directly below TopContactBar */}
         <div 
           ref={mainNavbarRef}
-          className={`main-navbar w-full transition-all duration-300 ease-in-out ${
+          className={`main-navbar w-full transition-all duration-300 ease-in-out navbar-section ${
             isAdminPage 
               ? 'bg-green-200 dark:bg-blue-800' 
               : 'bg-green-100 dark:bg-gray-800'
@@ -160,6 +172,8 @@ export default function Navbar() {
             borderBottom: 'none',
             paddingBottom: '0',
             marginBottom: '0',
+            position: 'relative',
+            zIndex: 1002
           }}
         >
           <MainNavbar />

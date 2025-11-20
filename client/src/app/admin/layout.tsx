@@ -8,7 +8,7 @@ const AdminSidebar = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="w-20 md:w-80 bg-white dark:bg-gray-800 border-r-2 border-gray-300 dark:border-gray-700" />
+      <div className="w-24 md:w-80 bg-white dark:bg-gray-800 border-r-2 border-gray-300 dark:border-gray-700" />
     ),
   }
 );
@@ -19,7 +19,7 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
-  const [sidebarWidth, setSidebarWidth] = useState(280);
+  const [sidebarWidth, setSidebarWidth] = useState(320);
   const [mounted, setMounted] = useState(false);
   const isResizing = useRef(false);
 
@@ -34,7 +34,7 @@ export default function AdminLayout({
     }
 
     if (savedWidth !== null) {
-      setSidebarWidth(Math.max(80, Math.min(400, parseInt(savedWidth))));
+      setSidebarWidth(Math.max(100, Math.min(450, parseInt(savedWidth))));
     }
   }, []);
 
@@ -63,9 +63,9 @@ export default function AdminLayout({
 
   const resize = (e: MouseEvent) => {
     if (isResizing.current) {
-      const newWidth = Math.max(80, Math.min(320, e.clientX));
+      const newWidth = Math.max(100, Math.min(350, e.clientX));
       setSidebarWidth(newWidth);
-      setSidebarCollapsed(newWidth < 120);
+      setSidebarCollapsed(newWidth < 150);
     }
   };
 
@@ -94,7 +94,7 @@ export default function AdminLayout({
         <div
           className="flex-1 transition-all duration-300"
           style={{
-            marginLeft: mounted ? "8px" : "0px", // Adjust margin based on sidebar presence
+            marginLeft: mounted ? "12px" : "0px",
           }}
         >
           <main className="p-4 md:p-6 bg-gray-50 dark:bg-gray-900">

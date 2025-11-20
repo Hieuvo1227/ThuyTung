@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+﻿﻿import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "@/styles/globals.css";
 import { Slide, ToastContainer } from "react-toastify";
@@ -42,6 +42,11 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
+  },
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 5,
   },
 };
 
